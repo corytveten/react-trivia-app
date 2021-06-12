@@ -14,8 +14,16 @@ class QuestionListContainer extends Component {
     }
 
     //fetch questions methods
+    fetchQuestions = () => {
+        fetch('http://localhost:4000/questions')
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
 
     //componentDidMount method which will call fetch questions
+    componentDidMount() {
+        this.fetchQuestions()
+    }
 }
 
 export default QuestionListContainer
