@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 
+import QuestionList from '../components/QuestionList'
+
 class QuestionListContainer extends Component {
 
     render() {
         return (
-            <p>question list container</p>
+            <div>
+                <p>question list container</p>
+                <QuestionList />
+            </div>
         )
     }
 
