@@ -9,9 +9,9 @@ class Question extends Component {
                 <p>Question {this.props.questionObj.id}</p>
                 <p>{this.props.questionObj.question}</p>
                 <p>a.{this.props.questionObj.correct_answer}</p>
-                <p>b.{this.props.questionObj.incorrect_answers[0]}</p>
-                <p>c.{this.props.questionObj.incorrect_answers[1]}</p>
-                <p>d.{this.props.questionObj.incorrect_answers[2]}</p>
+                <p>b.{this.props.questionObj.incorrect_answer_a}</p>
+                <p>c.{this.props.questionObj.incorrect_answer_b}</p>
+                <p>d.{this.props.questionObj.incorrect_answer_c}</p>
 
             </>
         )
