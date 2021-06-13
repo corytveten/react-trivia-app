@@ -8,7 +8,15 @@ class QuestionList extends Component {
         return(
             <div>
                 <p>question list</p>
-                <Question />
+                <ul>
+                    {this.props.questionObjs.map(questionObj => (
+                        <li key={questionObj.id}>
+                            <Question questionObj={questionObj}/>
+                        </li>
+                    )
+                        
+                    )}
+                </ul>
             </div>
         )
     }
