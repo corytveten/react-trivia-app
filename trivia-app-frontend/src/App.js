@@ -5,7 +5,7 @@ import QuestionListContainer from './containers/QuestionListContainer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" className='container'>
       <h1>TRIVIA APP</h1>
       < QuestionListContainer />
     </div>
