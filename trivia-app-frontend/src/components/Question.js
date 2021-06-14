@@ -8,10 +8,10 @@ class Question extends Component {
             <>
                 <h4>Question {this.props.questionObj.id}</h4>
                 <p>{this.props.questionObj.question}</p>
-                <p>a.{this.props.questionObj.correct_answer}</p>
-                <p>b.{this.props.questionObj.incorrect_answer_a}</p>
-                <p>c.{this.props.questionObj.incorrect_answer_b}</p>
-                <p>d.{this.props.questionObj.incorrect_answer_c}</p>
+                <p><button>A</button>{this.props.questionObj.correct_answer}</p>
+                <p><button>B</button>{this.props.questionObj.incorrect_answer_a}</p>
+                <p><button>C</button>{this.props.questionObj.incorrect_answer_b}</p>
+                <p><button>D</button>{this.props.questionObj.incorrect_answer_c}</p>
 
             </>
         )
