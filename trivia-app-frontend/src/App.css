@@ -19,14 +19,14 @@ p {
     margin-bottom: 1rem;
 }
 
-/* .container {
+.container {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 80rem;
-} */
+}
 
 .btn {
     font-size: 1.8rem;
