@@ -26,7 +26,7 @@ class QuestionListContainer extends Component {
         fetch('http://localhost:4000/questions')
         .then(res => res.json())
         .then(data => {
-            // console.log(data)
+            //console.log(data)
             this.setState({
                 questionObjs: data
             })
