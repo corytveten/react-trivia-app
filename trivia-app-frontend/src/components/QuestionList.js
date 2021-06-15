@@ -3,15 +3,16 @@ import React, { Component } from 'react'
 import Question from './Question'
 
 class QuestionList extends Component {
-
+    
     constructor(props) {
-        console.log(props.questionObjs)
-        let first = props.questionObjs.find(first => first === first)
-        console.log(first)
         super(props)
+        // console.log(props)
+        let first = props.questionObjs.find(first => first)
+        console.log(first)
         
         this.state = {
-            question: first
+            question: first,
+            counter: 1
         }
     }
 
