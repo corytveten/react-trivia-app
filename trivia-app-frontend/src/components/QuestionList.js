@@ -11,8 +11,7 @@ class QuestionList extends Component {
         console.log(props.questionObjs[0])
         
         this.state = {
-            question: props.questionObjs[0],
-            counter: 1
+            question: props.questionObjs[this.props.counter],
         }
     }
 

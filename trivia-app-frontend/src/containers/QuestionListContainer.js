@@ -9,7 +9,8 @@ class QuestionListContainer extends Component {
 
         this.state = {
             questionObjs: [],
-            btnClass: 'btn' 
+            btnClass: 'btn',
+            counter: 0
         }
     }
     
@@ -23,7 +24,7 @@ class QuestionListContainer extends Component {
         return (
             <div>
                 <p>question list container</p>
-                <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} btnClass={this.state.btnClass}/>
+                <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} btnClass={this.state.btnClass} counter={this.state.counter}/>
             </div>
         )
     }
