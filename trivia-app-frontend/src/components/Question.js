@@ -52,10 +52,10 @@ const Question = ({ questionObj }) => (
     
     <div className='question'>
         <h3>Question: {questionObj.question}</h3>
-        <p><button>{questionObj.correct_answer}</button></p>
-        <p><button>{questionObj.incorrect_answer_a}</button></p>
-        <p><button>{questionObj.incorrect_answer_b}</button></p>
-        <p><button>{questionObj.incorrect_answer_c}</button></p>
+        <p><button onClick={() => console.log('correct was clicked')}>{questionObj.correct_answer}</button></p>
+        <p><button onClick={() => console.log('incorrectA was clicked')}>{questionObj.incorrect_answer_a}</button></p>
+        <p><button onClick={() => console.log('incorrectB was clicked')}>{questionObj.incorrect_answer_b}</button></p>
+        <p><button onClick={() => console.log('incorrectC was clicked')}>{questionObj.incorrect_answer_c}</button></p>
     </div>
 )
 
