@@ -27,9 +27,11 @@ class QuestionListContainer extends Component {
         )
     }
 
-    onButtonClick = (questionObj) => {
-        console.log('Correct was clicked')
-        console.log(questionObj)
+    onButtonClick = (questionObj, event) => {
+        // console.log('Correct was clicked')
+        // console.log(questionObj, event.target.innerText)
+        questionObj.correct_answer === event.target.innerText ? console.log("right") : console.log('wrong')
+        
     } 
 
     //fetch questions methods
