@@ -53,7 +53,7 @@ const Question = ({ questionObj, onButtonClick, btnClass }) => (
     <div className='question'>
         <h3>Question: {questionObj.question}</h3>
         <p><button className={btnClass} onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.correct_answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_a}</button></p>
+        <p><button className={btnClass} onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_a}</button></p>
         <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_b}</button></p>
         <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_c}</button></p>
     </div>

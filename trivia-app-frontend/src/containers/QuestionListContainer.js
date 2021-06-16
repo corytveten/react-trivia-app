@@ -43,8 +43,14 @@ class QuestionListContainer extends Component {
             })
          } else {
             console.log('wrong')
+            // this.setState({
+            //     btnClass: 'btn-red'
+            // })
          }     
         
+        setTimeout(() => {
+            console.log('next question')
+        }, 2000)
         
     } 
 
