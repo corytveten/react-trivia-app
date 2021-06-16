@@ -11,6 +11,11 @@ class QuestionListContainer extends Component {
             questionObjs: []
         }
     }
+    
+    componentDidMount() {
+        this.fetchQuestions()
+        
+    }
 
     render() {
         console.log(this.state.questionObjs)
@@ -63,10 +68,7 @@ class QuestionListContainer extends Component {
     }
 
     //componentDidMount method which will call fetch questions
-    componentDidMount() {
-        this.fetchQuestions()
-        
-    }
+ 
 }
 
 export default QuestionListContainer

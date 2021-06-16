@@ -7,11 +7,11 @@ class QuestionList extends Component {
     constructor(props) {
         super(props)
         // console.log(props)
-        let first = props.questionObjs.find(first => first)
-        console.log(first)
+        //let first = props.questionObjs.find(first => first)
+        console.log(props.questionObjs[0])
         
         this.state = {
-            question: first,
+            question: props.questionObjs[0],
             counter: 1
         }
     }

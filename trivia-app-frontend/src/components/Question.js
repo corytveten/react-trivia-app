@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 
-class Question extends Component {
+// class Question extends Component {
 
-    constructor(props) {
-        super(props)
-        console.log(this.props)
-        // const {correct_answer, incorrect_answer_a, incorrect_answer_b, incorrect_answer_c} = props.questionObj;
-        // console.log(correct_answer)
+//     constructor(props) {
+//         super(props)
+//         console.log(this.props)
+//         // const {correct_answer, incorrect_answer_a, incorrect_answer_b, incorrect_answer_c} = props.questionObj;
+//         // console.log(correct_answer)
         
-        // this.state = {
-        //      //answer array should have a random index for correct_answer each time
-        //      answerArray: [correct_answer, incorrect_answer_a, incorrect_answer_b, incorrect_answer_c]
-        //  }
-    }
+//         // this.state = {
+//         //      //answer array should have a random index for correct_answer each time
+//         //      answerArray: [correct_answer, incorrect_answer_a, incorrect_answer_b, incorrect_answer_c]
+//         //  }
+//     }
 
 
     // getRandomQuestionArray = () => {
@@ -32,21 +32,32 @@ class Question extends Component {
     //     this.getRandomQuestionArray(this.props)
     // }
 
+//     render() {
+//         {console.log(this.props.questionObj)}
+//         return (
+//             <>
+//                 <h4>Question {this.props.questionObj.id}</h4>
+//                 <p>{this.props.questionObj.question}</p>
+//                 <p><button>A</button>{this.props.questionObj.correct_answer}</p>
+//                 <p><button>B</button>{this.props.questionObj.incorrect_answer_a}</p>
+//                 <p><button>C</button>{this.props.questionObj.incorrect_answer_b}</p>
+//                 <p><button>D</button>{this.props.questionObj.incorrect_answer_c}</p>
 
-    render() {
-        {console.log(this.props.questionObj)}
-        return (
-            <>
-                <h4>Question {this.props.questionObj.id}</h4>
-                <p>{this.props.questionObj.question}</p>
-                <p><button>A</button>{this.props.questionObj.correct_answer}</p>
-                <p><button>B</button>{this.props.questionObj.incorrect_answer_a}</p>
-                <p><button>C</button>{this.props.questionObj.incorrect_answer_b}</p>
-                <p><button>D</button>{this.props.questionObj.incorrect_answer_c}</p>
+//             </>
+//         )
+//     }
+// }
 
-            </>
-        )
-    }
-}
+const Question = ({ questionObj }) => (
+    
+    <div className='question'>
+        <h3>Question: {questionObj.question}</h3>
+        <p><button>{questionObj.correct_answer}</button></p>
+        <p><button>{questionObj.incorrect_answer_a}</button></p>
+        <p><button>{questionObj.incorrect_answer_b}</button></p>
+        <p><button>{questionObj.incorrect_answer_c}</button></p>
+    </div>
+)
+
 
 export default Question;
