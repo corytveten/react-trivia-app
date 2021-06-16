@@ -29,7 +29,7 @@ class QuestionList extends Component {
                     )
                         
                     )} */}
-                    <li><Question questionObj={this.state.question} onButtonClick={this.props.onButtonClick} /></li>
+                    <li><Question questionObj={this.state.question} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
                 </ul>
             </div>
         )

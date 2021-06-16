@@ -8,7 +8,8 @@ class QuestionListContainer extends Component {
         super();
 
         this.state = {
-            questionObjs: []
+            questionObjs: [],
+            btnClass: 'btn' 
         }
     }
     
@@ -22,15 +23,28 @@ class QuestionListContainer extends Component {
         return (
             <div>
                 <p>question list container</p>
-                <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} />
+                <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} btnClass={this.state.btnClass}/>
             </div>
         )
     }
 
+    // btnClass = () => {
+    //     let btn_class = this.state.green ? 'btn-green' : 'btn'
+    //     return btn_class
+    // }
+
     onButtonClick = (questionObj, event) => {
         // console.log('Correct was clicked')
-        // console.log(questionObj, event.target.innerText)
-        questionObj.correct_answer === event.target.innerText ? console.log("right") : console.log('wrong')
+        console.log(event.target)
+        if (questionObj.correct_answer === event.target.innerText) {
+            console.log("right")
+            this.setState({
+                btnClass: 'btn-green'
+            })
+         } else {
+            console.log('wrong')
+         }     
+        
         
     } 
 
