@@ -5,14 +5,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Home from './components/Home';
 import Login from './components/Login';
-import QuestionListContainer2 from './containers/QuestionListContainer2';
+import QuestionListContainer from './containers/QuestionListContainer';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
-        <Route exact path={'/questions'} component={QuestionListContainer2}></Route>
+        <Route exact path={'/questions'} component={QuestionListContainer}></Route>
         <Route exact path={'/login'} component={Login}></Route>
         <Route exact path={'/'} component={Home}></Route>
       </Router>
