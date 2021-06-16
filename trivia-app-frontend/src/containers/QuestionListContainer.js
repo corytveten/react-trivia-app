@@ -22,10 +22,15 @@ class QuestionListContainer extends Component {
         return (
             <div>
                 <p>question list container</p>
-                <QuestionList questionObjs={this.state.questionObjs}/>
+                <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} />
             </div>
         )
     }
+
+    onButtonClick = (questionObj) => {
+        console.log('Correct was clicked')
+        console.log(questionObj)
+    } 
 
     //fetch questions methods
 
