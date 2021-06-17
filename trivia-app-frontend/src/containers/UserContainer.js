@@ -9,13 +9,29 @@ import Signup from '../components/Signup'
 
 class UserContainer extends Component {
 
+    state = {
+        username: '',
+        password: ''
+      }
+
+    handleUsernameChange = event => {
+        this.setState({
+          username: event.target.value
+        })
+      }
+    
+    handlePasswordChange = event => {
+        this.setState({
+          password: event.target.value
+        })
+      }
 
     render() {
         return (
             <div>
                 <Home />
-                <Login />
-                <Signup />
+                <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} />
+                <Signup handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} />
             </div>
         )
     }

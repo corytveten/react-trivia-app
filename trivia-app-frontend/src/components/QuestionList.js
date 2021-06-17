@@ -15,6 +15,9 @@ class QuestionList extends Component {
         // }
     }
 
+    // componentDidUpdate(prevProps) {
+    //     console.log(prevProps)
+    // }
 
     render(){
         console.log(this.props)
@@ -29,7 +32,7 @@ class QuestionList extends Component {
                     )
                         
                     )} */}
-                    <li><Question questionObj={this.props.questionObjs[this.props.counter]} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
+                        <li><Question questionObj={this.props.questionObjs[this.props.counter]} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
                 </ul>
             </div>
         )
