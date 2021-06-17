@@ -18,9 +18,22 @@ class Signup extends React.Component {
     })
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+    let formData = { username: this.state.username, password: this.state.password }
+    console.log(formData)
+    // fetch('http://localhost:4000/users', {
+    //   method: "POST",
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(formData)
+    // })
+  }
+
   render() {
     return (
-      <form className='container'>
+      <form className='container' onSubmit={event => this.handleSubmit(event)}>
         <h1>Create an account</h1>
         <div>
           <input type="text" name="username" placeholder="Username" onChange={event => this.handleUsernameChange(event)} value={this.state.username}/>
