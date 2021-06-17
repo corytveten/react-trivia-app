@@ -8,15 +8,16 @@ class QuestionList extends Component {
         super(props)
         // console.log(props)
         //let first = props.questionObjs.find(first => first)
-        console.log(props.questionObjs[0])
+        // console.log(props.questionObjs[0])
         
-        this.state = {
-            question: props.questionObjs[this.props.counter],
-        }
+        // this.state = {
+        //     question: props.questionObjs[this.props.counter],
+        // }
     }
 
 
-    render() {
+    render(){
+        console.log(this.props)
         return(
             <div>
                 <p>question list</p>
@@ -28,7 +29,7 @@ class QuestionList extends Component {
                     )
                         
                     )} */}
-                    <li><Question questionObj={this.state.question} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
+                    <li><Question questionObj={this.props.questionObjs[this.props.counter]} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
                 </ul>
             </div>
         )

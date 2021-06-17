@@ -10,7 +10,8 @@ class QuestionListContainer extends Component {
         this.state = {
             questionObjs: [],
             btnClass: 'btn',
-            counter: 0
+            counter: 0,
+            answers: [],
         }
     }
     
@@ -46,6 +47,23 @@ class QuestionListContainer extends Component {
             console.log('wrong')
          }     
         
+        setTimeout( () => {
+            console.log('next question')
+            // this.setState(previousState => {
+            //     return {
+            //         counter: previousState.counter + 1
+            //     }
+            // })
+            this.setState(function(previousState) {
+                return {
+                    counter: previousState.counter + 1
+                }
+            })
+            // let newCount = this.state.count + 1
+            // this.setState({
+            //     count: newCount
+            // })
+        }, 1000)
         
     } 
 
@@ -62,7 +80,7 @@ class QuestionListContainer extends Component {
     //     })
     // }
 
-    fetchQuestions = () => {
+    fetchQuestions() {
         this.setState({
             questionObjs: [{
                 category: "Business",
@@ -88,6 +106,18 @@ class QuestionListContainer extends Component {
             }]
         })
     }
+
+    //might want to add this to questionList and use props for the 'answer' value
+    // addAnswerId = () => {
+        // this.setState({
+        //     answers: [
+        //         {answerId: 1, answer: },
+        //         {answerId: 2, answer: },
+        //         {answerId: 3, answer: },
+        //         {answerId: 4, answer: },
+        //     ]
+        // })
+    // }
 
     //componentDidMount method which will call fetch questions
  

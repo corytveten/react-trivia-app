@@ -28,6 +28,15 @@ p {
     max-width: 80rem;
 }
 
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
     font-size: 1.8rem;
     padding: 1rem 0;

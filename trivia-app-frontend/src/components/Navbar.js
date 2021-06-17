@@ -40,7 +40,15 @@ class Navbar extends React.Component {
           activeStyle={{
             background: 'darkblue'
           }}
-        >Login</NavLink>
+        >Log in</NavLink>
+        <NavLink
+          to="/signup"
+          exact
+          style={link}
+          activeStyle={{
+            background: 'darkblue'
+          }}
+        >Sign up</NavLink>
       </div>
     )
   }
