@@ -20,15 +20,18 @@ class Signup extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    let formData = { username: this.state.username, password: this.state.password }
+    let formData = { username: this.state.username, password: this.state.password, score: 0 }
     console.log(formData)
-    // fetch('http://localhost:4000/users', {
-    //   method: "POST",
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(formData)
-    // })
+    fetch('http://localhost:4000/users', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message))
   }
 
   render() {

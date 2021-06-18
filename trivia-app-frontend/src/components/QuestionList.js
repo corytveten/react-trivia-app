@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import Question from './Question'
+import Question from './Question';
+import User from './User';
 
 class QuestionList extends Component {
     
@@ -34,6 +35,7 @@ class QuestionList extends Component {
                     )} */}
                         <li><Question questionObj={this.props.questionObjs[this.props.counter]} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
                 </ul>
+                < User />
             </div>
         )
     }

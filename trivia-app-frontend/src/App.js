@@ -16,10 +16,10 @@ function App() {
       <Router>
         <Navbar />
         <Route exact path={'/questions'} component={QuestionListContainer}></Route>
-        <Route path={'/login'} component={Login}></Route>
-        <Route path={'/signup'} component={Signup}></Route>
+        <Route exact path={'/login'} component={Login}></Route>
+        <Route exact path={'/signup'} component={Signup}></Route>
         {/* <Route path={'/'} component={Home}></Route> */}
-        <Route path={'/'} component={Home}></Route>
+        <Route exact path={'/'} component={Home}></Route>
       </Router>
       {/* <h1>TRIVIA APP</h1> */}
       {/* < QuestionListContainer /> */}
