@@ -4,7 +4,8 @@ class Login extends React.Component {
 
   state = {
     username: '',
-    password: ''
+    password: '',
+    currentUser: '',
   }
 
   handleUsernameChange = event => {
@@ -25,11 +26,20 @@ class Login extends React.Component {
     console.log('hello', formData)
     fetch('http://localhost:4000/users')
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data =>{
+      console.log(data)
+      const currentUser = data.find(user => {
+        return user.username === formData.username;
+      })
+      this.setState({
+        currentUser: currentUser
+      })
+    })
     this.setState({
       username: '',
       password: ''
     })
+  
     // fetch('http://localhost:4000/users', {
     //   method: "POST",
     //   headers: {
@@ -52,6 +62,7 @@ class Login extends React.Component {
           <label htmlFor="password"></label>
         </div>
         <input type="submit" value="Login" />
+        {this.state.currentUser.username}
       </form>
     );
   }
