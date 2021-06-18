@@ -48,8 +48,13 @@ import React, { Component } from 'react'
 //     }
 // }
 
-const Question = ({ questionObj, onButtonClick, btnClass }) => (
+const Question = ({ questionObj, onButtonClick, btnClass }) => {
+
+    if (!questionObj) {
+        return null;
+    }
     
+    return (
     <div className='question'>
         <h3>Question: {questionObj.question}</h3>
         <p><button className={btnClass} onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.correct_answer}</button></p>
@@ -57,7 +62,8 @@ const Question = ({ questionObj, onButtonClick, btnClass }) => (
         <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_b}</button></p>
         <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_c}</button></p>
     </div>
-)
+    );
+}
 
 
 export default Question;
