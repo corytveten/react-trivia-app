@@ -1,5 +1,7 @@
 import React from 'react';
  
+import User from './User';
+
 class Login extends React.Component {
 
   state = {
@@ -62,7 +64,8 @@ class Login extends React.Component {
           <label htmlFor="password"></label>
         </div>
         <input type="submit" value="Login" />
-        {this.state.currentUser.username}
+        <User username={this.state.currentUser.username} score={this.state.currentUser.score}/>
+
       </form>
     );
   }
