@@ -2,27 +2,34 @@ import React from 'react';
  
 class Login extends React.Component {
 
-  // state = {
-  //   username: '',
-  //   password: ''
-  // }
+  state = {
+    username: '',
+    password: ''
+  }
 
-  // handleUsernameChange = event => {
-  //   this.setState({
-  //     username: event.target.value
-  //   })
-  // }
+  handleUsernameChange = event => {
+    this.setState({
+      username: event.target.value
+    })
+  }
 
-  // handlePasswordChange = event => {
-  //   this.setState({
-  //     password: event.target.value
-  //   })
-  // }
+  handlePasswordChange = event => {
+    this.setState({
+      password: event.target.value
+    })
+  }
 
   handleSubmit = event => {
     event.preventDefault()
     let formData = { username: this.state.username, password: this.state.password }
-    console.log(formData)
+    console.log('hello', formData)
+    fetch('http://localhost:4000/users')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    this.setState({
+      username: '',
+      password: ''
+    })
     // fetch('http://localhost:4000/users', {
     //   method: "POST",
     //   headers: {
@@ -37,12 +44,12 @@ class Login extends React.Component {
       <form className='container' onSubmit={event => this.handleSubmit(event)}>
         <h1>Login</h1>
         <div>
-          <input type="text" name="username" placeholder="Username" onChange={event => this.props.handleUsernameChange(event)} value={this.props.username}/>
-          <label htmlFor="username">Username</label>
+          <input type="text" name="username" placeholder="Username" onChange={event => this.handleUsernameChange(event)} value={this.state.username}/>
+          <label htmlFor="username"></label>
         </div>
         <div>
-          <input type="password" name="password" placeholder="Password" onChange={event => this.props.handlePasswordChange(event)} value={this.props.password}/>
-          <label htmlFor="password">Password</label>
+          <input type="password" name="password" placeholder="Password" onChange={event => this.handlePasswordChange(event)} value={this.state.password}/>
+          <label htmlFor="password"></label>
         </div>
         <input type="submit" value="Login" />
       </form>

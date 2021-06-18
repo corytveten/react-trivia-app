@@ -26,11 +26,26 @@ class UserContainer extends Component {
         })
       }
 
+    handleLoginSubmit = event => {
+        event.preventDefault()
+        let formData = { username: this.state.username, password: this.state.password }
+        console.log(formData)
+        fetch('http://localhost:4000/users')
+        .then(res => res.json())
+        .then(data => console.log(data))
+        // fetch('http://localhost:4000/users', {
+        //   method: "POST",
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify(formData)
+        // })
+      }
+
     render() {
         return (
             <div>
-                <Home />
-                <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} />
+                <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} handleLoginSubmit={this.handleLoginSubmit} />
                 <Signup handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} />
             </div>
         )

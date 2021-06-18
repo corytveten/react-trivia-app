@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 import Login from './components/Login';
 import Signup from './components/Signup';
 import QuestionListContainer from './containers/QuestionListContainer';
-import UserContainer from './containers/UserContainer';
+// import UserContainer from './containers/UserContainer';
 import Home from './components/Home';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Route path={'/login'} component={Login}></Route>
         <Route path={'/signup'} component={Signup}></Route>
         {/* <Route path={'/'} component={Home}></Route> */}
-        <Route path={'/'} component={UserContainer}></Route>
+        <Route path={'/'} component={Home}></Route>
       </Router>
       {/* <h1>TRIVIA APP</h1> */}
       {/* < QuestionListContainer /> */}
