@@ -33,9 +33,14 @@ class Login extends React.Component {
       const currentUser = data.find(user => {
         return user.username === formData.username;
       })
-      this.setState({
-        currentUser: currentUser
-      })
+      console.log(currentUser)
+      if (currentUser) {
+        this.setState({
+          currentUser: currentUser
+        })
+      } else {
+        alert('wrong username or password');
+      }
     })
     this.setState({
       username: '',

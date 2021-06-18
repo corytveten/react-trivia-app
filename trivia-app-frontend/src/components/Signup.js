@@ -3,7 +3,8 @@ import React from 'react';
 class Signup extends React.Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    currentUser: '',
   }
 
   handleUsernameChange = event => {
@@ -30,12 +31,25 @@ class Signup extends React.Component {
       body: JSON.stringify(formData)
     })
     .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error.message))
+    .then(data => {
+      console.log(data)
+      const currentUser = data; 
+      console.log(currentUser)
+      if (currentUser) {
+        this.setState({
+          currentUser: currentUser
+        })
+      }
+    })
+    .catch(error => {
+      alert("Username exists. Choose another.")
+      console.log(error.message);
+    })
   }
 
   render() {
     return (
+      <div>
       <form className='container' onSubmit={event => this.handleSubmit(event)}>
         <h1>Create an Account</h1>
         <div>
@@ -46,8 +60,10 @@ class Signup extends React.Component {
           <input type="password" name="password" placeholder="Password" onChange={event => this.handlePasswordChange(event)} value={this.state.password}/>
           <label htmlFor="password"></label>
         </div>
-        <input type="submit" value="Login" />
+        <input type="submit" value="Create Account" />
       </form>
+      {this.state.currentUser.username}
+      </div>
     );
   }
 }
