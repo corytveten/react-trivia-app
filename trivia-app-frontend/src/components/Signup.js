@@ -1,4 +1,6 @@
 import React from 'react';
+
+import User from './User';
  
 class Signup extends React.Component {
   state = {
@@ -32,9 +34,7 @@ class Signup extends React.Component {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       const currentUser = data; 
-      console.log(currentUser)
       if (currentUser) {
         this.setState({
           currentUser: currentUser
@@ -62,7 +62,7 @@ class Signup extends React.Component {
         </div>
         <input type="submit" value="Create Account" />
       </form>
-      {this.state.currentUser.username}
+      <User username={this.state.currentUser.username} score={this.state.currentUser.score}/>
       </div>
     );
   }
