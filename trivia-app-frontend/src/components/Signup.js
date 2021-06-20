@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import User from './User';
  
 class Signup extends React.Component {
@@ -23,29 +23,30 @@ class Signup extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    let formData = { username: this.state.username, password: this.state.password, score: 0 }
-    console.log(formData)
-    fetch('http://localhost:4000/users', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(res => res.json())
-    .then(data => {
-      const currentUser = data; 
-      if (currentUser) {
-        this.setState({
-          currentUser: currentUser
-        })
-      }
-    })
-    .catch(error => {
-      alert("Username exists. Choose another.")
-      console.log(error.message);
-    })
-  }
+  //   let formData = { username: this.state.username, password: this.state.password, score: 0 }
+  //   console.log(formData)
+  //   fetch('http://localhost:4000/users', {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(formData)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     const currentUser = data; 
+  //     if (currentUser) {
+  //       this.setState({
+  //         currentUser: currentUser
+  //       })
+  //     }
+  //   })
+  //   .catch(error => {
+  //     alert("Username exists. Choose another.")
+  //     console.log(error.message);
+  //   })
+      this.props.addUser(this.state)
+   }
 
   render() {
     return (
@@ -66,6 +67,12 @@ class Signup extends React.Component {
       </div>
     );
   }
-}
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addUser: formData => dispatch({ type: 'ADD_USER', payload: formData })
+  };
+};
  
-export default Signup;
+export default connect(null, mapDispatchToProps)(Signup);
