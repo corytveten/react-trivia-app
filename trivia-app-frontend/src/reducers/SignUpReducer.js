@@ -1,10 +1,10 @@
-export default function userReducer(state = {
+export default function SignUpReducer(state = {
         username: '',
         password: '',
         currentUser: '',
 }, action) {
 
-    console.log('userReducer triggered');
+    console.log('signUpReducer triggered');
 
     return state;
 }
