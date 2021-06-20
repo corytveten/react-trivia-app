@@ -3,7 +3,9 @@ import React from 'react';
 import User from './User';
 
 class Login extends React.Component {
-
+    constructor(props) {
+      super(props)
+    }
   // state = {
   //   username: '',
   //   password: '',
@@ -54,11 +56,16 @@ class Login extends React.Component {
       <form className='container' onSubmit={event => this.handleSubmit(event)}>
         <h1>Login</h1>
         <div>
-          <input type="text" name="username" placeholder="Username" onChange={event => this.props.handleUsernameChange(event)} value={this.props.username}/>
+          <input type="text" name="username" placeholder="Username" 
+          onChange={event => this.props.handleUsernameChange(event)} 
+          // onChange={this.props.handleUsernameChange}
+          value={this.props.username}/>
           <label htmlFor="username"></label>
         </div>
         <div>
-          <input type="password" name="password" placeholder="Password" onChange={event => this.props.handlePasswordChange(event)} value={this.props.password}/>
+          <input type="password" name="password" placeholder="Password" 
+          //onChange={event => this.props.handlePasswordChange(event)} 
+          value={this.props.password}/>
           <label htmlFor="password"></label>
         </div>
         <input type="submit" value="Login" />
