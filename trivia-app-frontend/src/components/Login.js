@@ -1,12 +1,14 @@
 import React from 'react';
- 
+import { connect } from 'react-redux';
 import User from './User';
+import { loginUser } from '../actions.js/users';
 
 class Login extends React.Component {
 
   state = {
     username: '',
     password: '',
+    users: [],
     currentUser: '',
   }
 
@@ -24,24 +26,26 @@ class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    let formData = { username: this.state.username, password: this.state.password }
-    console.log('hello', formData)
-    fetch('http://localhost:4000/users')
-    .then(res => res.json())
-    .then(data =>{
-      console.log(data)
-      const currentUser = data.find(user => {
-        return user.username === formData.username;
-      })
-      console.log(currentUser)
-      if (currentUser) {
-        this.setState({
-          currentUser: currentUser
-        })
-      } else {
-        alert('wrong username or password');
-      }
-    })
+    // let formData = { username: this.state.username, password: this.state.password }
+    // console.log('hello', formData)
+    // fetch('http://localhost:4000/users')
+    // .then(res => res.json())
+    // .then(data =>{
+    //   console.log(data)
+    //   const currentUser = data.find(user => {
+    //     return user.username === formData.username;
+    //   })
+    //   console.log(currentUser)
+    //   if (currentUser) {
+    //     this.setState({
+    //       currentUser: currentUser
+    //     })
+    //   } else {
+    //     alert('wrong username or password');
+    //   }
+    // })
+    console.log(loginUser(this.state))
+    this.props.loginUser(this.state)
     this.setState({
       username: '',
       password: ''
@@ -69,11 +73,18 @@ class Login extends React.Component {
           <label htmlFor="password"></label>
         </div>
         <input type="submit" value="Login" />
-        <User username={this.state.currentUser.username} score={this.state.currentUser.score}/>
+        <User username={this.props.currentUser.username} score={this.props.currentUser.score}/>
 
       </form>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
  
-export default Login;
+export default connect(mapStateToProps, { loginUser })(Login);
