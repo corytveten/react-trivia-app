@@ -1,6 +1,6 @@
 export default function SignUpReducer(state = {
-        username: '',
-        password: '',
+        username: [],
+        password: [],
         currentUser: {
             username: '',
             score: 0,
