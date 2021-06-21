@@ -63,11 +63,17 @@ class Signup extends React.Component {
         </div>
         <input type="submit" value="Create Account" />
       </form>
-      <User username={this.state.currentUser.username} score={this.state.currentUser.score}/>
+      <User username={this.props.currentUser.username} score={this.props.currentUser.score}/>
       </div>
     );
   }
 };
+
+const mapStateToProps = state => {
+  return {
+      currentUser: state.currentUser
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -75,4 +81,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
  
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
