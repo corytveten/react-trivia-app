@@ -1,34 +1,55 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux';
+import { fetchQuestions } from '../actions.js/fetchQuestions';
 import QuestionList from '../components/QuestionList'
 
 class QuestionListContainer extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-        this.state = {
-            questionObjs: [],
-            btnClass: 'btn',
-            counter: 0,
-            answers: [],
-        }
+        // this.state = {
+        //     questionObjs: [],
+        //     btnClass: 'btn',
+        //     counter: 0,
+        //     answers: [],
+        // }
     }
     
     componentDidMount() {
-        this.fetchQuestions()
+        this.props.fetchQuestions()
         
     }
 
+    handleLoading = () => {
+        console.log(this.props.loading)
+        if (this.props.loading) {
+            return <div>Loading...</div>
+        } else {
+            // return <QuestionList />
+
+            {console.log(this.props.questions)}
+        }
+    }
+
     render() {
-        console.log(this.state.questionObjs)
         return (
             <div>
-                <p>question list container</p>
-                <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} btnClass={this.state.btnClass} counter={this.state.counter}/>
+                <p>Question List container</p>
+                {this.handleLoading()}
             </div>
-        )
+        );
     }
+
+    // render() {
+    //     console.log(this.state.questionObjs)
+    //     return (
+    //         <div>
+    //             <p>question list container</p>
+    //             <QuestionList questionObjs={this.state.questionObjs} onButtonClick={this.onButtonClick} btnClass={this.state.btnClass} counter={this.state.counter}/>
+    //         </div>
+    //     )
+    // }
 
     // btnClass = () => {
     //     let btn_class = this.state.green ? 'btn-green' : 'btn'
@@ -80,32 +101,32 @@ class QuestionListContainer extends Component {
     //     })
     // }
 
-    fetchQuestions() {
-        this.setState({
-            questionObjs: [{
-                category: "Business",
-                correct_answer: "Ty",
-                difficulty: "hard",
-                id: 1, 
-                incorrect_answer_a: "Billund",
-                incorrect_answer_b: "Bandai",
-                incorrect_answer_c: "Wizkids",
-                question: "Which company is responsible for the animal toy fad introduced in 1993 as Beanie Babies?",
-                style: "multiple"
-            }, 
-            {
-                category: "Religion",
-                correct_answer: "Matthew",
-                difficulty: "hard",
-                id: 2,
-                incorrect_answer_a: "Peter",
-                incorrect_answer_b: "Luke",
-                incorrect_answer_c: "Judas",
-                question: "Which of the Apostles of Jesus Christ had been employed as a tax collector in Galilee?",
-                style: "multiple"
-            }]
-        })
-    }
+    // fetchQuestions() {
+    //     this.setState({
+    //         questionObjs: [{
+    //             category: "Business",
+    //             correct_answer: "Ty",
+    //             difficulty: "hard",
+    //             id: 1, 
+    //             incorrect_answer_a: "Billund",
+    //             incorrect_answer_b: "Bandai",
+    //             incorrect_answer_c: "Wizkids",
+    //             question: "Which company is responsible for the animal toy fad introduced in 1993 as Beanie Babies?",
+    //             style: "multiple"
+    //         }, 
+    //         {
+    //             category: "Religion",
+    //             correct_answer: "Matthew",
+    //             difficulty: "hard",
+    //             id: 2,
+    //             incorrect_answer_a: "Peter",
+    //             incorrect_answer_b: "Luke",
+    //             incorrect_answer_c: "Judas",
+    //             question: "Which of the Apostles of Jesus Christ had been employed as a tax collector in Galilee?",
+    //             style: "multiple"
+    //         }]
+    //     })
+    // }
 
     //might want to add this to questionList and use props for the 'answer' value
     // addAnswerId = () => {
@@ -123,4 +144,12 @@ class QuestionListContainer extends Component {
  
 }
 
-export default QuestionListContainer
+const mapStateToProps = state => {
+    return {
+        questions: state.questionsReducer,
+        loading: state.loading
+    }
+}
+
+// export default QuestionListContainer
+export default connect(mapStateToProps, { fetchQuestions })(QuestionListContainer)

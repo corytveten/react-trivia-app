@@ -14,10 +14,12 @@ function questionsReducer(state = {
             case 'ADD_QUESTIONS':
                 return {
                     ...state,
-                    questions: action.astronauts,
+                    questions: action.questions,
                     requesting: false
                 }
             default:
                 return state;
         }
 }
+
+export default questionsReducer;
