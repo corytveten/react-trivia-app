@@ -5,8 +5,8 @@ import QuestionList from '../components/QuestionList'
 
 class QuestionListContainer extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         // this.state = {
         //     questionObjs: [],
@@ -26,9 +26,8 @@ class QuestionListContainer extends Component {
         if (this.props.loading) {
             return <div>Loading...</div>
         } else {
-            // return <QuestionList />
-
             {console.log(this.props.questions)}
+            return <QuestionList questions={this.props.questions} onButtonClick={this.onButtonClick}/>
         }
     }
 
@@ -56,35 +55,35 @@ class QuestionListContainer extends Component {
     //     return btn_class
     // }
 
-    onButtonClick = (questionObj, event) => {
+    onButtonClick = (question, event) => {
         // console.log('Correct was clicked')
         console.log(event.target)
-        if (questionObj.correct_answer === event.target.innerText) {
-            console.log("right")
-            this.setState({
-                btnClass: 'btn-green'
-            })
-         } else {
-            console.log('wrong')
-         }     
+        // if (question.correct_answer === event.target.innerText) {
+        //     console.log("right")
+        //     this.setState({
+        //         btnClass: 'btn-green'
+        //     })
+        //  } else {
+        //     console.log('wrong')
+        //  }     
         
-        setTimeout( () => {
-            console.log('next question')
-            // this.setState(previousState => {
-            //     return {
-            //         counter: previousState.counter + 1
-            //     }
-            // })
-            this.setState(function(previousState) {
-                return {
-                    counter: previousState.counter + 1
-                }
-            })
-            // let newCount = this.state.count + 1
-            // this.setState({
-            //     count: newCount
-            // })
-        }, 1000)
+        // setTimeout( () => {
+        //     console.log('next question')
+        //     // this.setState(previousState => {
+        //     //     return {
+        //     //         counter: previousState.counter + 1
+        //     //     }
+        //     // })
+        //     this.setState(function(previousState) {
+        //         return {
+        //             counter: previousState.counter + 1
+        //         }
+        //     })
+        //     // let newCount = this.state.count + 1
+        //     // this.setState({
+        //     //     count: newCount
+        //     // })
+        // }, 1000)
         
     } 
 

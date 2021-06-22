@@ -33,7 +33,13 @@ class QuestionList extends Component {
                     )
                         
                     )} */}
-                        <li><Question questionObj={this.props.questionObjs[this.props.counter]} onButtonClick={this.props.onButtonClick} btnClass={this.props.btnClass}/></li>
+                        <li>
+                            <Question 
+                                question={this.props.questions.questions[0]} 
+                                onButtonClick={this.props.onButtonClick} 
+                                //btnClass={this.props.btnClass}
+                                />
+                        </li>
                 </ul>
                 < User />
             </div>

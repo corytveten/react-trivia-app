@@ -48,19 +48,20 @@ import React, { Component } from 'react'
 //     }
 // }
 
-const Question = ({ questionObj, onButtonClick, btnClass }) => {
+// const Question = ({ questionObj, onButtonClick, btnClass }) => {
+    const Question = ({ question, onButtonClick }) => {
 
-    if (!questionObj) {
+    if (!question) {
         return null;
     }
     
     return (
     <div className='question'>
-        <h3>Question: {questionObj.question}</h3>
-        <p><button className={btnClass} onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.correct_answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_a}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_b}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(questionObj, event)}>{questionObj.incorrect_answer_c}</button></p>
+        <h3>Question: {question.question}</h3>
+        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.correct_answer}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.incorrect_answer_a}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.incorrect_answer_b}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.incorrect_answer_c}</button></p>
     </div>
     );
 }
