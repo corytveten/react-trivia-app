@@ -147,7 +147,7 @@ class QuestionListContainer extends Component {
 const mapStateToProps = state => {
     return {
         questions: state.questionsReducer,
-        loading: state.loading
+        loading: state.questionsReducer.loading
     }
 }
 

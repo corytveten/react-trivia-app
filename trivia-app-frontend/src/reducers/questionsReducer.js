@@ -8,14 +8,14 @@ function questionsReducer(state = {
                 return {
                     ...state,
                     questions: [...state.questions],
-                    requesting: true
+                    loading: true
                 }
             
             case 'ADD_QUESTIONS':
                 return {
                     ...state,
                     questions: action.questions,
-                    requesting: false
+                    loading: false
                 }
             default:
                 return state;
