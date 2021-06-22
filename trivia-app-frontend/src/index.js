@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import SignUpReducer from './reducers/SignUpReducer'
 // import LoginReducer from './reducers/LoginReducer'
