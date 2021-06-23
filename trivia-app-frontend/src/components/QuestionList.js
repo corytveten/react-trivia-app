@@ -14,6 +14,59 @@ class QuestionList extends Component {
         // this.state = {
         //     question: props.questionObjs[this.props.counter],
         // }
+        this.state = {
+            complete: false,
+            counter: 0
+        }
+
+        
+    }
+
+    onButtonClick = (question, event) => {
+        // console.log('Correct was clicked')
+        console.log(event.target)
+
+        this.setState({
+            complete: true,
+        })
+        
+
+        
+        // if (question.correct_answer === event.target.innerText) {
+        //     console.log("right")
+        //     this.setState({
+        //         btnClass: 'btn-green'
+        //     })
+        //  } else {
+        //     console.log('wrong')
+        //  }     
+        
+        // setTimeout( () => {
+        //     console.log('next question')
+        //     // this.setState(previousState => {
+        //     //     return {
+        //     //         counter: previousState.counter + 1
+        //     //     }
+        //     // })
+        //     this.setState(function(previousState) {
+        //         return {
+        //             counter: previousState.counter + 1
+        //         }
+        //     })
+        //     // let newCount = this.state.count + 1
+        //     // this.setState({
+        //     //     count: newCount
+        //     // })
+        // }, 1000)
+    }
+
+    nextButtonClick = () => {
+        
+        this.setState(function(previousState) {
+            return {
+                counter: previousState.counter + 1
+            }
+        })
     }
 
     // componentDidUpdate(prevProps) {
@@ -23,7 +76,7 @@ class QuestionList extends Component {
     render(){
         console.log(this.props)
         return(
-            <div>
+            <div className="question-list">
                 <p>question list</p>
                 <ul>
                     {/* {this.props.questionObjs.map(questionObj => (
@@ -35,12 +88,13 @@ class QuestionList extends Component {
                     )} */}
                         <li>
                             <Question 
-                                question={this.props.questions.questions[0]} 
-                                onButtonClick={this.props.onButtonClick} 
+                                question={this.props.questions.questions[this.state.counter]} 
+                                onButtonClick={this.onButtonClick} 
                                 //btnClass={this.props.btnClass}
                                 />
                         </li>
                 </ul>
+                {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
                 < User />
             </div>
         )

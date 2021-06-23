@@ -8,6 +8,7 @@ class QuestionListContainer extends Component {
     constructor() {
         super();
 
+
         // this.state = {
         //     questionObjs: [],
         //     btnClass: 'btn',
@@ -27,7 +28,7 @@ class QuestionListContainer extends Component {
             return <div>Loading...</div>
         } else {
             {console.log(this.props.questions)}
-            return <QuestionList questions={this.props.questions} onButtonClick={this.onButtonClick}/>
+            return <QuestionList questions={this.props.questions} />
         }
     }
 
@@ -36,6 +37,7 @@ class QuestionListContainer extends Component {
             <div>
                 <p>Question List container</p>
                 {this.handleLoading()}
+
             </div>
         );
     }
@@ -55,37 +57,8 @@ class QuestionListContainer extends Component {
     //     return btn_class
     // }
 
-    onButtonClick = (question, event) => {
-        // console.log('Correct was clicked')
-        console.log(event.target)
-        // if (question.correct_answer === event.target.innerText) {
-        //     console.log("right")
-        //     this.setState({
-        //         btnClass: 'btn-green'
-        //     })
-        //  } else {
-        //     console.log('wrong')
-        //  }     
-        
-        // setTimeout( () => {
-        //     console.log('next question')
-        //     // this.setState(previousState => {
-        //     //     return {
-        //     //         counter: previousState.counter + 1
-        //     //     }
-        //     // })
-        //     this.setState(function(previousState) {
-        //         return {
-        //             counter: previousState.counter + 1
-        //         }
-        //     })
-        //     // let newCount = this.state.count + 1
-        //     // this.setState({
-        //     //     count: newCount
-        //     // })
-        // }, 1000)
-        
-    } 
+
+     
 
     //fetch questions methods
 
