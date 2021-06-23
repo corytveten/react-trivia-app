@@ -7,13 +7,7 @@ class QuestionList extends Component {
     
     constructor(props) {
         super(props)
-        // console.log(props)
-        //let first = props.questionObjs.find(first => first)
-        // console.log(props.questionObjs[0])
-        
-        // this.state = {
-        //     question: props.questionObjs[this.props.counter],
-        // }
+
         this.state = {
             complete: false,
             counter: 0
@@ -66,6 +60,10 @@ class QuestionList extends Component {
             return {
                 counter: previousState.counter + 1
             }
+        })
+
+        this.setState({
+            complete: false
         })
     }
 
