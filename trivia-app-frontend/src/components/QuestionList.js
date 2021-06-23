@@ -10,24 +10,39 @@ class QuestionList extends Component {
 
         this.state = {
             complete: false,
-            counter: 0
+            counter: 0,
+            answers: []
         }
 
         
     }
 
-    componentDidMount(){
-        this.randomizeAnswers()
-    }
+    // componentDidMount(){
+    //     this.randomizeAnswers()
+    // }
 
     randomizeAnswers = () => {
         // console.log(this.props.questions)
         // this.props.questions.map
         let currentQuestion = this.props.questions.questions[this.state.counter];
+        debugger
         console.log(currentQuestion.answers)
-        let obj = currentQuestion.answers.find(obj => obj.correct);
-        console.log(obj);
+        // let obj = currentQuestion.answers.find(obj => obj.correct);
+        // console.log(obj);
+        let shuffledArray = this.shuffle(currentQuestion.answers)
+        console.log(shuffledArray)
+        return shuffledArray;
+    }
 
+    shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
     }
 
     onButtonClick = (question, event) => {
@@ -98,13 +113,17 @@ class QuestionList extends Component {
                     )
                         
                     )} */}
-                        <li>
-                            <Question 
+                            {this.props.questions.questions ? 
+
+                        <li><Question 
                                 question={this.props.questions.questions[this.state.counter]} 
+                                answers={() => this.randomizeAnswers}
                                 onButtonClick={this.onButtonClick} 
-                                //btnClass={this.props.btnClass}
+                                //btnClass={this.props.btnClass} :
                                 />
-                        </li>
+                        </li> :
+                            null    
+                        }
                 </ul>
                 {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
                 < User />
