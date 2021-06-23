@@ -58,10 +58,10 @@ import React from 'react'
     return (
     <div className='question'>
         <h3>Question: {question.question}</h3>
-        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.answers[0].answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.answers[1].answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.answers[2].answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(question, event)}>{question.answers[3].answer}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[0].isCorrect)}>{question.answers[0].answer}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[1].isCorrect)}>{question.answers[1].answer}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[2].isCorrect)}>{question.answers[2].answer}</button></p>
+        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[3].isCorrect)}>{question.answers[3].answer}</button></p>
     </div>
     );
 }
