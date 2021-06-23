@@ -16,6 +16,20 @@ class QuestionList extends Component {
         
     }
 
+    componentDidMount(){
+        this.randomizeAnswers()
+    }
+
+    randomizeAnswers = () => {
+        // console.log(this.props.questions)
+        // this.props.questions.map
+        let currentQuestion = this.props.questions.questions[this.state.counter];
+        console.log(currentQuestion.answers)
+        let obj = currentQuestion.answers.find(obj => obj.correct);
+        console.log(obj);
+
+    }
+
     onButtonClick = (question, event) => {
         // console.log('Correct was clicked')
         console.log(event.target)
@@ -97,6 +111,7 @@ class QuestionList extends Component {
             </div>
         )
     }
+
 }
 
 export default QuestionList;

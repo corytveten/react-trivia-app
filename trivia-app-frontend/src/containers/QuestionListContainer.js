@@ -5,17 +5,17 @@ import QuestionList from '../components/QuestionList'
 
 class QuestionListContainer extends Component {
 
-    constructor() {
-        super();
+    // constructor() {
+    //     super();
 
 
-        // this.state = {
-        //     questionObjs: [],
-        //     btnClass: 'btn',
-        //     counter: 0,
-        //     answers: [],
-        // }
-    }
+    //     // this.state = {
+    //     //     questionObjs: [],
+    //     //     btnClass: 'btn',
+    //     //     counter: 0,
+    //     //     answers: [],
+    //     // }
+    // }
     
     componentDidMount() {
         this.props.fetchQuestions()
@@ -27,8 +27,8 @@ class QuestionListContainer extends Component {
         if (this.props.loading) {
             return <div>Loading...</div>
         } else {
-            {console.log(this.props.questions)}
-            return <QuestionList questions={this.props.questions} />
+            // {console.log(this.props.questions)}
+            return <QuestionList questions={this.props.questions}/>
         }
     }
 
