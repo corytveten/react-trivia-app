@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchUsers } from '../actions.js/users';
 
 import Home from '../components/Home'
 // import User from '../components/User'
@@ -9,47 +11,68 @@ import Signup from '../components/Signup'
 
 class UserContainer extends Component {
 
-    state = {
-        username: '',
-        password: ''
-      }
+    // state = {
+    //     username: '',
+    //     password: ''
+    //   }
 
-    handleUsernameChange = event => {
-        this.setState({
-          username: event.target.value
-        })
-      }
+  componentDidMount() {
+    this.props.fetchUsers()
+  }
+
+  handleLoading = () => {
+    console.log(this.props.loading)
+    if (this.props.loading) {
+      return <div>Loading...</div>
+    } else {
+      console.log(this.props.users)
+    }
+  }
+
+    // handleUsernameChange = event => {
+    //     this.setState({
+    //       username: event.target.value
+    //     })
+    //   }
     
-    handlePasswordChange = event => {
-        this.setState({
-          password: event.target.value
-        })
-      }
+    // handlePasswordChange = event => {
+    //     this.setState({
+    //       password: event.target.value
+    //     })
+    //   }
 
-    handleLoginSubmit = event => {
-        event.preventDefault()
-        let formData = { username: this.state.username, password: this.state.password }
-        console.log(formData)
-        fetch('http://localhost:4000/users')
-        .then(res => res.json())
-        .then(data => console.log(data))
-        // fetch('http://localhost:4000/users', {
-        //   method: "POST",
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify(formData)
-        // })
-      }
+    // handleLoginSubmit = event => {
+    //     event.preventDefault()
+    //     let formData = { username: this.state.username, password: this.state.password }
+    //     console.log(formData)
+    //     fetch('http://localhost:4000/users')
+    //     .then(res => res.json())
+    //     .then(data => console.log(data))
+    //     // fetch('http://localhost:4000/users', {
+    //     //   method: "POST",
+    //     //   headers: {
+    //     //     'Content-Type': 'application/json'
+    //     //   },
+    //     //   body: JSON.stringify(formData)
+    //     // })
+    //   }
 
     render() {
         return (
             <div>
-                <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} handleLoginSubmit={this.handleLoginSubmit} />
-                <Signup handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} />
+                {/* <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} handleLoginSubmit={this.handleLoginSubmit} />
+                <Signup handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} /> */}
+                <p>User: {this.handleLoading}</p>
             </div>
         )
     }
 }
 
-export default UserContainer;
+const mapStateToProps = state => {
+  return {
+    users: state.UsersReducer,
+    loading: state.UsersReducer.loading
+  }
+}
+
+export default connect(mapStateToProps, { fetchUsers })(UserContainer);

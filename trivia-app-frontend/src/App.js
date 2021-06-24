@@ -9,6 +9,7 @@ import Signup from './components/Signup';
 import QuestionListContainer from './containers/QuestionListContainer';
 // import UserContainer from './containers/UserContainer';
 import Home from './components/Home';
+import UserContainer from './containers/UserContainer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path={'/questions'} component={QuestionListContainer}></Route>
         <Route exact path={'/login'} component={Login}></Route>
         <Route exact path={'/signup'} component={Signup}></Route>
+        <Route exact path={'/user'} component={UserContainer}></Route>
         {/* <Route path={'/'} component={Home}></Route> */}
         <Route exact path={'/'} component={Home}></Route>
       </Router>

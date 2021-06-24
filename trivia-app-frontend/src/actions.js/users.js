@@ -11,3 +11,15 @@ export const loginUser = user => {
         user
     }
 }
+
+export const fetchUsers = () => {
+    return (dispatch) => {
+        dispatch({ type: 'START_ADDING_USERS_REQUEST'});
+        fetch('http://localhost:4000/users')
+        .then(res => res.json())
+        .then(users => {
+            console.log(users)
+            dispatch({ type: 'GET_USERS', users })
+        })
+    };
+}

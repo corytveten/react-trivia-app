@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import SignUpReducer from './reducers/SignUpReducer'
 import questionsReducer from './reducers/questionsReducer';
+import UsersReducer from './reducers/UsersReducer';
 // import LoginReducer from './reducers/LoginReducer'
 import './index.css';
 import App from './App';
@@ -16,7 +17,8 @@ const composedEnhancer = compose(
   );
 const reducers = combineReducers({
   SignUpReducer,
-  questionsReducer
+  questionsReducer,
+  UsersReducer
 })
 
 const store = createStore(reducers, composedEnhancer)
