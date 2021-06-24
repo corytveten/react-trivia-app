@@ -62,6 +62,8 @@ class UserContainer extends Component {
             <div>
                 {/* <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} handleLoginSubmit={this.handleLoginSubmit} />
                 <Signup handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} /> */}
+                {/* <Login /> */}
+                <Signup />
                 <p>User: {this.handleLoading}</p>
             </div>
         )

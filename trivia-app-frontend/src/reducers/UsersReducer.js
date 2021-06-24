@@ -17,7 +17,9 @@ export default function usersReducer(state = {
         case 'GET_USERS':
             return {
                 ...state,
-                users: action.users,
+                users: action.users.map(user => (
+                    Object.assign({}, user, {isLoggedIn: false})
+                )),
                 loading: true
             }
 
