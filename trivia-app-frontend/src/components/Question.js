@@ -75,13 +75,18 @@ class Question extends Component {
 
     state = {
         counter: 0,
-        complete: false
+        complete: false,
+        btnClass: 'btn'
     }
 
-    onButtonClick = (event) => {
+    onButtonClick = () => {
         // debugger
-        console.log(event.target)
-        console.log('hi')
+        // console.log(event.target)
+        // console.log(this.props.questions[this.state.counter].answers);
+        const answersArr = this.props.questions[this.state.counter].answers;
+        const correctAns = answersArr.find(answer => answer.isCorrect)
+        console.log(this.correctAns)
+
         
         this.setState({
             complete: true
@@ -108,9 +113,7 @@ class Question extends Component {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.state.counter]);
         // debugger
         return (
-            <ul>
-                <h3>{currentQuestion.question}</h3>
-            </ul>
+            <h3>{currentQuestion.question}</h3>
         );
     
 
@@ -128,7 +131,7 @@ class Question extends Component {
         return (
             this.shuffle(currentQuestionAnswers.slice()).map((answer, index) => {
             return (
-                <Answer key={index} answer={answer} onButtonClick={this.onButtonClick} />
+                <Answer className={this.state.btnClass} key={index} answer={answer} onButtonClick={this.onButtonClick} />
             )
         })
 
@@ -165,19 +168,40 @@ class Question extends Component {
         // console.log(this.props)
         if (this.props.questions.length > 0) {
          console.log(this.answerShuffle()) 
-        } 
+        };
+
+        let correctAns;
+        if (this.state.complete && this.state.counter < 10) {
+            let answersArr = this.props.questions[this.state.counter].answers;
+            let AnswerObj = answersArr.find(answer => answer.isCorrect)
+            correctAns = <h2>Correct Answer: {AnswerObj.answer}</h2>
+            console.log(correctAns)
+        }
+
+        //  if/else for render after the question is clicked
+        let nextButton;
+        if (this.state.complete && this.state.counter < 10) {
+            // let answersArr = this.props.questions[this.state.counter].answers;
+            // results = <p>Correct Answer: {answersArr.find(answer => answer.isCorrect)}</p>
+            nextButton = <button className='next-button' onClick={this.nextButtonClick}>Next Question</button>
+        }
+         
         return (
             <>
             <div className='question'>
                 {/* {!this.props.questions.length > 0 ? null : <h3>Question: {this.props.questions[this.state.counter].question}</h3>} */}
                 {this.props.questions.length > 0 ? this.questionBuilder() : null }
-                {this.props.questions.length > 0 ? this.answerShuffle() : null }
+                <ul>
+                    {this.props.questions.length > 0 ? this.answerShuffle() : null }
+                </ul>
                 {/* <Answer />
                 <Answer />
                 <Answer />
                 <Answer /> */}
             </div>
-            {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
+            {/* {this.state.complete && this.state.counter < 10 ? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null} */}
+            {correctAns}
+            {nextButton}
             </>
         )
 
