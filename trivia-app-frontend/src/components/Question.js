@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Answer from './Answer';
 
 // class Question extends Component {
 
@@ -49,22 +51,82 @@ import React from 'react'
 // }
 
 // const Question = ({ questionObj, onButtonClick, btnClass }) => {
-    const Question = ({ question, onButtonClick }) => {
+//     const Question = ({ question, onButtonClick }) => {
 
-    if (!question) {
-        return null;
-    }
+//     if (!question) {
+//         return null;
+//     }
     
-    return (
-    <div className='question'>
-        <h3>Question: {question.question}</h3>
-        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[0].isCorrect)}>{question.answers[0].answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[1].isCorrect)}>{question.answers[1].answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[2].isCorrect)}>{question.answers[2].answer}</button></p>
-        <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[3].isCorrect)}>{question.answers[3].answer}</button></p>
-    </div>
-    );
+//     return (
+//     <div className='question'>
+//         <h3>Question: {question.question}</h3>
+//         <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[0].isCorrect)}>{question.answers[0].answer}</button></p>
+//         <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[1].isCorrect)}>{question.answers[1].answer}</button></p>
+//         <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[2].isCorrect)}>{question.answers[2].answer}</button></p>
+//         <p><button className='btn' onClick={(event) => onButtonClick(event, question, question.answers[3].isCorrect)}>{question.answers[3].answer}</button></p>
+//     </div>
+//     );
+// }
+
+
+// export default Question;
+
+class Question extends Component {
+
+    state = {
+        counter: 0
+    }
+
+    questionBuilder = () => {
+        const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.state.counter]);
+        debugger
+        return (
+            <div>
+                <h3>{currentQuestion.question}</h3>
+                {/* {answerShuffle(this.props)} */}
+            </div>
+        )
+
+        function answerShuffle(props) {
+            const correctAnswer = props.questions.answers[0];
+            debugger
+            console.log(currentQuestion.answers.shift())
+            const newArray = currentQuestion.answers.shift();
+            const randomIndex = Math.floor(Math.random() * 4);
+            console.log({newArray: newArray, randomIndex: randomIndex})
+            return newArray.splice(randomIndex, 0, correctAnswer);
+        }
+    }
+
+    // questionOrganizer = () => {
+    //     this.props.questions.map(question => {
+    //         console.log(question.answers)
+    //     })
+    // }
+
+    
+
+    render () {
+        console.log(this.questionBuilder())
+        // console.log(this.props)
+        return (
+            <div className='question'>
+                {!this.props.questions.length > 0 ? null : <h3>Question: {this.props.questions[this.state.counter].question}</h3>}
+                {this.questionBuilder}
+                {/* <Answer />
+                <Answer />
+                <Answer />
+                <Answer /> */}
+            </div>
+        )
+
+    }
 }
 
+const mapStateToProps = state => {
+    return {
+        questions: state.questionsReducer.questions,
+    }
+}  
 
-export default Question;
+export default connect(mapStateToProps)(Question)

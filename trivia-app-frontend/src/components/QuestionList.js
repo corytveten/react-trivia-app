@@ -12,6 +12,7 @@ class QuestionList extends Component {
             complete: false,
             counter: 0,
             answers: [],
+            
         }
         //maybe map over answers array rather than use state
         
@@ -66,9 +67,7 @@ class QuestionList extends Component {
             complete: true,
         })
 
-        this.setState({
-
-        })
+        
         // if (question, )
 
         
