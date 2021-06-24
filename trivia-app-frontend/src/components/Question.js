@@ -79,40 +79,68 @@ class Question extends Component {
 
     questionBuilder = () => {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.state.counter]);
-        debugger
+        // debugger
         return (
             <div>
                 <h3>{currentQuestion.question}</h3>
-                {/* {answerShuffle(this.props)} */}
+
             </div>
-        )
-
-        function answerShuffle(props) {
-            const correctAnswer = props.questions.answers[0];
-            debugger
-            console.log(currentQuestion.answers.shift())
-            const newArray = currentQuestion.answers.shift();
-            const randomIndex = Math.floor(Math.random() * 4);
-            console.log({newArray: newArray, randomIndex: randomIndex})
-            return newArray.splice(randomIndex, 0, correctAnswer);
-        }
-    }
-
-    // questionOrganizer = () => {
-    //     this.props.questions.map(question => {
-    //         console.log(question.answers)
-    //     })
-    // }
-
+        );
     
 
+    }
+
+
+    answerShuffle() {
+        console.log(this.props.questions)
+        const currentQuestionAnswers = this.props.questions[this.state.counter].answers;
+        // debugger
+        //this.shuffle(currentQuestionsAnswers)map. 
+        // this.shuffle(currentQuestionAnswers) {} - destructive without slice
+
+        //.slice creates a copy which can be destructively changed
+        return (
+            this.shuffle(currentQuestionAnswers.slice()).map(answer => {
+            return (
+                <div>
+                    <Answer answer={answer} />
+                </div>
+                // <Answer />
+            )
+        })
+        )
+        // console.log(this.shuffle(currentQuestionAnswers))
+
+        // console.log(currentQuestionAnswers.answers)
+
+        // const newArray = currentQuestionAnswers.answers.shift();
+        // const randomIndex = Math.floor(Math.random() * 4);
+        // console.log({newArray: newArray, randomIndex: randomIndex})
+        // return newArray.splice(randomIndex, 0, correctAnswer);
+    }
+
+        shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
+
     render () {
-        console.log(this.questionBuilder())
+        // console.log(this.questionBuilder())
         // console.log(this.props)
+        if (this.props.questions.length > 0) {
+         console.log(this.answerShuffle()) 
+        } 
         return (
             <div className='question'>
-                {!this.props.questions.length > 0 ? null : <h3>Question: {this.props.questions[this.state.counter].question}</h3>}
-                {this.questionBuilder}
+                {/* {!this.props.questions.length > 0 ? null : <h3>Question: {this.props.questions[this.state.counter].question}</h3>} */}
+                {this.props.questions.length > 0 ? this.questionBuilder() : null }
+                {this.props.questions.length > 0 ? this.answerShuffle() : null }
                 {/* <Answer />
                 <Answer />
                 <Answer />
