@@ -77,13 +77,18 @@ class Question extends Component {
         counter: 0
     }
 
+    onButtonClick = (event) => {
+        // debugger
+        console.log(event)
+        console.log('hi')
+    }
+
     questionBuilder = () => {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.state.counter]);
         // debugger
         return (
             <div>
                 <h3>{currentQuestion.question}</h3>
-
             </div>
         );
     
@@ -98,16 +103,20 @@ class Question extends Component {
         //this.shuffle(currentQuestionsAnswers)map. 
         // this.shuffle(currentQuestionAnswers) {} - destructive without slice
 
-        //.slice creates a copy which can be destructively changed
+        //.slice creates a copy which can be destructively changed by shuffle
         return (
-            this.shuffle(currentQuestionAnswers.slice()).map(answer => {
+            this.shuffle(currentQuestionAnswers.slice()).map((answer, index) => {
             return (
-                <div>
-                    <Answer answer={answer} />
-                </div>
-                // <Answer />
+                <Answer key={index} answer={answer} onButtonClick={this.onButtonClick} />
             )
         })
+
+        // return (
+        //     this.shuffle(currentQuestionAnswers).map((answer, index) => {
+        //     return (
+        //         <Answer key={index} answer={answer} onButtonClick={this.onButtonClick} />
+        //     )
+        // })
         )
         // console.log(this.shuffle(currentQuestionAnswers))
 
@@ -119,7 +128,7 @@ class Question extends Component {
         // return newArray.splice(randomIndex, 0, correctAnswer);
     }
 
-        shuffle(a) {
+    shuffle(a) {
         var j, x, i;
         for (i = a.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));
