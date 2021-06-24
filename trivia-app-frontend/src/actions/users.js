@@ -5,7 +5,7 @@ export const addUser = user => {
     }
 }
 
-export const loginUser = user => {
+export const login = user => {
     return {
         type: 'LOGIN_USER',
         user
