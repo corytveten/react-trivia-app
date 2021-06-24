@@ -74,22 +74,43 @@ import Answer from './Answer';
 class Question extends Component {
 
     state = {
-        counter: 0
+        counter: 0,
+        complete: false
     }
 
     onButtonClick = (event) => {
         // debugger
-        console.log(event)
+        console.log(event.target)
         console.log('hi')
+        
+        this.setState({
+            complete: true
+        })
+        //change classList of correct button on click
+    }
+
+
+    nextButtonClick = () => {
+        
+        this.setState(function(previousState) {
+            return {
+                counter: previousState.counter + 1
+            }
+        })
+    
+        this.setState({
+            complete: false
+        })
+        
     }
 
     questionBuilder = () => {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.state.counter]);
         // debugger
         return (
-            <div>
+            <ul>
                 <h3>{currentQuestion.question}</h3>
-            </div>
+            </ul>
         );
     
 
@@ -146,6 +167,7 @@ class Question extends Component {
          console.log(this.answerShuffle()) 
         } 
         return (
+            <>
             <div className='question'>
                 {/* {!this.props.questions.length > 0 ? null : <h3>Question: {this.props.questions[this.state.counter].question}</h3>} */}
                 {this.props.questions.length > 0 ? this.questionBuilder() : null }
@@ -155,6 +177,8 @@ class Question extends Component {
                 <Answer />
                 <Answer /> */}
             </div>
+            {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
+            </>
         )
 
     }
