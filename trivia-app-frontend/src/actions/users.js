@@ -1,9 +1,24 @@
 const url = "http://localhost:4000"
 
 export const addUser = user => {
-    return {
-        type: 'ADD_USER',
-        user
+    console.log(user)
+    return (dispatch) => {
+        let formData = { username: user.username, password: user.password, score: 0 }
+        console.log(formData)
+        fetch('http://localhost:4000/users', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+        
+        // type: 'ADD_USER',
+        // user
     }
 }
 

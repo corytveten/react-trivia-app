@@ -10,7 +10,7 @@ import User from './components/User'
 import QuestionListContainer from './containers/QuestionListContainer';
 // import UserContainer from './containers/UserContainer';
 import Home from './components/Home';
-import UserContainer from './containers/UserContainer';
+// import UserContainer from './containers/UserContainer';
 
 function App() {
   return (

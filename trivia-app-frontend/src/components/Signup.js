@@ -69,10 +69,10 @@ class Signup extends React.Component {
         </div>
         <input type="submit" value="Create Account" />
       </form>
-      {this.props.map((user, index) => {
+      {/* {this.props.map((user, index) => {
         // <User user={user} key={index} />
         <User />
-      })}
+      })} */}
       {/* <User username={this.props.username} score={this.props.currentUser.score}/> */}
       </div>
     );
