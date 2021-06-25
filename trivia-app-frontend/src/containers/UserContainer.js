@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions.js/users';
+import { fetchUsers } from '../actions/users';
 
 import Home from '../components/Home'
 import User from '../components/User'
@@ -63,7 +63,7 @@ class UserContainer extends Component {
             <div>
                 {/* <Login handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} handleLoginSubmit={this.handleLoginSubmit} />
                 <Signup handleUsernameChange={this.handleUsernameChange} handlePasswordChange={this.handlePasswordChange} /> */}
-                <Login />
+                {!this.props.currentUser? <Login /> : null } 
                 {/* <Signup /> */}
                 <p>User: {this.handleLoading}</p>
             </div>

@@ -7,8 +7,8 @@ const User = ({ username, score }) => {
     // }
 
     return (
-        <div>
-            <h2>Player: {username}</h2>
+        <div class='container'>
+            <h2>Player Name: {username}</h2>
             <h3>Score: {score}</h3>
         </div>
     )

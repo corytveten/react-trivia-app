@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 // import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import User from './components/User'
 import QuestionListContainer from './containers/QuestionListContainer';
 // import UserContainer from './containers/UserContainer';
 import Home from './components/Home';
@@ -19,7 +20,7 @@ function App() {
         <Route exact path={'/questions'} component={QuestionListContainer}></Route>
         <Route exact path={'/login'} component={Login}></Route>
         <Route exact path={'/signup'} component={Signup}></Route>
-        <Route exact path={'/user'} component={UserContainer}></Route>
+        <Route exact path={'/user'} component={User}></Route>
         {/* <Route path={'/'} component={Home}></Route> */}
         <Route exact path={'/'} component={Home}></Route>
       </Router>

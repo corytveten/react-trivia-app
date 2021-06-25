@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchQuestions } from '../actions.js/fetchQuestions';
+import { fetchQuestions } from '../actions/fetchQuestions';
 import QuestionList from '../components/QuestionList'
 
 class QuestionListContainer extends Component {
