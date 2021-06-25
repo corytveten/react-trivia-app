@@ -120,33 +120,35 @@ class QuestionList extends Component {
         console.log(this.props)
         {console.log(this.state.answers)}
         return(
-            <div className="question-list">
-                <p>question list</p>
-                <ul>
-                    {/* {this.props.questionObjs.map(questionObj => (
-                        <li key={questionObj.id}>
-                            <Question questionObj={questionObj}/>
-                        </li>
-                    )
-                        
-                    )} */}
-                            {/* {this.props.questions.questions ?  */}
+            <>
+                <div className="question-list">
+                    <p>question list</p>
+                    <ul>
+                        {/* {this.props.questionObjs.map(questionObj => (
+                            <li key={questionObj.id}>
+                                <Question questionObj={questionObj}/>
+                            </li>
+                        )
                             
-                            {this.state.answers !== [] ?
-                        <li><Question 
-                                question={this.props.questions.questions[this.state.counter]} 
-                                // answers={() => this.randomizeAnswers}
-                                answers={this.state.answers}
-                                onButtonClick={this.onButtonClick} 
-                                btnClass={this.props.btnClass}
-                                />
-                        </li> :
-                            null    
-                        }
-                </ul>
-                {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
-                < User />
-            </div>
+                        )} */}
+                                {/* {this.props.questions.questions ?  */}
+                                
+                                {this.state.answers !== [] ?
+                            <li><Question 
+                                    question={this.props.questions.questions[this.state.counter]} 
+                                    // answers={() => this.randomizeAnswers}
+                                    answers={this.state.answers}
+                                    onButtonClick={this.onButtonClick} 
+                                    btnClass={this.props.btnClass}
+                                    />
+                            </li> :
+                                null    
+                            }
+                    </ul>
+                    {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
+                </div>
+                <User />
+            </>
         )
     }
 

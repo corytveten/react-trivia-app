@@ -26,6 +26,9 @@ class QuestionListContainer extends Component {
         console.log(this.props.loading)
         if (this.props.loading) {
             return <div>Loading...</div>
+        } else if (!this.props.currentUser) {
+            // debugger
+            return <h1>Please sign in</h1>
         } else {
             // {console.log(this.props.questions)}
             return <QuestionList questions={this.props.questions}/>
@@ -116,12 +119,28 @@ class QuestionListContainer extends Component {
  
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         questions: state.questionsReducer,
-        loading: state.questionsReducer.loading
+        loading: state.questionsReducer.loading,
+        currentUser: state.UsersReducer.currentUser
     }
 }
+
+// const mapStateToProps = (state) => {
+//     if (!state.usersReducer.currentUser) {
+//         return {
+//             questions: state.questionsReducer,
+//             loading: state.questionsReducer.loading,
+//         }
+//     } else {
+//         return {
+//             questions: state.questionsReducer,
+//             loading: state.questionsReducer.loading,
+//             questions: state.questionsReducer,
+//         }
+//     }
+// }
 
 // export default QuestionListContainer
 export default connect(mapStateToProps, { fetchQuestions })(QuestionListContainer)

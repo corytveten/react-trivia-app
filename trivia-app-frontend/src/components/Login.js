@@ -130,6 +130,7 @@ class LoginForm extends Component {
 
     return (
       <form id='login-form' className='container' onSubmit={this.handleSubmit}>
+        <h1>Log in:</h1>
         <input type="text" name='username' placeholder='username' value={this.state.username} onChange={this.handleUsernameChange}/>
         <input type="password" name='password' placeholder='password' value={this.state.password} onChange={this.handlePasswordChange}/>
         <button type='submit' >Login</button>

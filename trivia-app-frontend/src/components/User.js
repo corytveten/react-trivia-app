@@ -9,8 +9,8 @@ const User = ({ currentUser }) => {
 
     return (
         <div class='container'>
-            <h2>Player Name: {currentUser.currentUser.username}</h2>
-            <h3>Score: {currentUser.currentUser.score}</h3>
+            <h2>Player Name: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
+            <h3>Score: { currentUser.currentUser? currentUser.currentUser.score : null }</h3>
         </div>
     );
 }
