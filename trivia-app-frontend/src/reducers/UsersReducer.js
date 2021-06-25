@@ -28,8 +28,11 @@ export default function usersReducer(state = {
             return action.payload
 
 
-        // case 'LOGIN_USER':
-        //     return state.find(user => user.id === action.quoteId);
+        case 'LOGIN_USER':
+            return {
+                ...state,
+                currentUser: action.user
+            }
 
         default:
             return state;

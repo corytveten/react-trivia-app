@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import User from './User';
-import { addUser } from '../actions/users';
+import { addUser } from '../actions.js/users';
  
 class Signup extends React.Component {
   state = {
@@ -54,7 +54,7 @@ class Signup extends React.Component {
    }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.users)
     return (
       <div>
       <form className='container' onSubmit={event => this.handleSubmit(event)}>
@@ -69,9 +69,9 @@ class Signup extends React.Component {
         </div>
         <input type="submit" value="Create Account" />
       </form>
-      {/* {this.props.map((user, index) => {
+      {this.props.map((user, index) => {
         <User user={user} key={index} />
-      })} */}
+      })}
       {/* <User username={this.props.username} score={this.props.currentUser.score}/> */}
       </div>
     );
