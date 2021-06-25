@@ -13,8 +13,9 @@ export const addUser = user => {
         body: JSON.stringify(formData)
         })
         .then(res => res.json())
-        .then(data => {
-            console.log(data)
+        .then(user => {
+            console.log(user)
+            dispatch({ type: 'LOGIN_USER', user})
         })
         
         // type: 'ADD_USER',
