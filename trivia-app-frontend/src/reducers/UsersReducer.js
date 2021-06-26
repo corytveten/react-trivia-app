@@ -1,6 +1,6 @@
 export default function usersReducer(state = {
     users: [],
-    currentUser: { score: 0 },
+    currentUser: '',
     requesting: false,
     }, 
     action) {
@@ -41,6 +41,7 @@ export default function usersReducer(state = {
             return {
                 ...state,
                 currentUser: {
+                    ...state.currentUser,
                     score: state.currentUser.score + 1
                 }
             }
