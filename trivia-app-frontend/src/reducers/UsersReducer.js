@@ -1,6 +1,7 @@
 export default function usersReducer(state = {
     users: [],
     currentUser: '',
+    counter: 0,
     requesting: false,
     }, 
     action) {
@@ -46,8 +47,12 @@ export default function usersReducer(state = {
                 }
             }
 
-        // case 'SAY_HELLO':
-        //     console.log('hello second')
+        case 'INCREASE_COUNTER':
+            console.log('increasing counter reducer')
+            return {
+                ...state,
+                counter: state.counter + 1
+            }
 
         default:
             return state;

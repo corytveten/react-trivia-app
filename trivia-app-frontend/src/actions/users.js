@@ -55,7 +55,6 @@ export const increaseScore = () => {
     }
 }
 
-// export const increaseScore = () => {
-//     console.log('hello first')
-//     return { type: 'SAY_HELLO' }
-// }
+export const increaseCounter = () => {
+    return { type: 'INCREASE_COUNTER' }
+}
