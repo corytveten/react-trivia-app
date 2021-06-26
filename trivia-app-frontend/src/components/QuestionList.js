@@ -121,9 +121,9 @@ class QuestionList extends Component {
         {console.log(this.state.answers)}
         return(
             <>
-                <div className="question-list">
+                <div>
                     <p>question list</p>
-                    <ul>
+                    <ul className='question-list'>
                         {/* {this.props.questionObjs.map(questionObj => (
                             <li key={questionObj.id}>
                                 <Question questionObj={questionObj}/>

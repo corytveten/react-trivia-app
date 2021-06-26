@@ -29,6 +29,24 @@ p {
     max-width: 80rem;
 }
 
+.container-row {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+}
+
+.question-list {
+    list-style: none;
+}
+
+.question {
+    width: 30vw;
+}
+
 .home-page {
     width: 100vw;
     height: 100vh;

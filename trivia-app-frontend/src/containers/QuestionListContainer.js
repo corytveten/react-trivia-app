@@ -45,7 +45,7 @@ class QuestionListContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container-row'>
                 <p>Question List container</p>
                 {this.handleLoading()}
 
