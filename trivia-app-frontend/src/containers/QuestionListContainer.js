@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchQuestions } from '../actions/fetchQuestions';
 import QuestionList from '../components/QuestionList'
+import User from '../components/User'
 
 class QuestionListContainer extends Component {
 
@@ -29,6 +30,13 @@ class QuestionListContainer extends Component {
         } else if (!this.props.currentUser.username) {
             // debugger
             return <h1>Please sign in</h1>
+        } else if (this.props.counter >= 10) {
+            return (
+                <div>
+                    <h3>FINAL SCORE</h3>
+                    <User />
+                </div>
+            )
         } else {
             // {console.log(this.props.questions)}
             return <QuestionList questions={this.props.questions}/>
@@ -123,7 +131,8 @@ const mapStateToProps = (state) => {
     return {
         questions: state.questionsReducer,
         loading: state.questionsReducer.loading,
-        currentUser: state.UsersReducer.currentUser
+        currentUser: state.UsersReducer.currentUser,
+        counter: state.UsersReducer.counter,
     }
 }
 
