@@ -54,6 +54,12 @@ export default function usersReducer(state = {
                 counter: state.counter + 1
             }
 
+        case 'LOGOUT':
+            console.log('logging out reducer')
+            return {
+                state
+            }
+
         default:
             return state;
     }

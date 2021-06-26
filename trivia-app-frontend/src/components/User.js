@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Score from './Score'
+import Logout from './Logout'
 
 const User = ({ currentUser }) => {
     console.log(currentUser)
@@ -12,6 +13,7 @@ const User = ({ currentUser }) => {
         <div className='container'>
             <h2>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
             <Score />
+            {currentUser.currentUser? <Logout /> : null}
         </div>
     );
 }

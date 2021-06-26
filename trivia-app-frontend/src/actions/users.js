@@ -17,9 +17,6 @@ export const addUser = user => {
             console.log(user)
             dispatch({ type: 'LOGIN_USER', user})
         })
-        
-        // type: 'ADD_USER',
-        // user
     }
 }
 
@@ -57,4 +54,9 @@ export const increaseScore = () => {
 
 export const increaseCounter = () => {
     return { type: 'INCREASE_COUNTER' }
+}
+
+export const logout = () => {
+    console.log('inside logout action')
+    return { type: 'LOGOUT' }
 }
