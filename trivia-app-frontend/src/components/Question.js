@@ -80,7 +80,7 @@ class Question extends Component {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.props.counter]);
         // debugger
         return (
-            <h2>{currentQuestion.question}</h2>
+            <h2 className='question'>{currentQuestion.question}</h2>
         );
     
 

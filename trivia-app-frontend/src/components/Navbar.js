@@ -8,6 +8,7 @@ const link = {
   background: 'blue',
   textDecoration: 'none',
   color: 'white',
+  borderRadius: '25px',
 }
  
 class Navbar extends React.Component {

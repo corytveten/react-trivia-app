@@ -39,12 +39,21 @@ p {
     max-width: 80rem;
 }
 
+.question-container {
+    margin: 2vw;
+    padding: 5px;
+    background-color: darkblue;
+    border-radius: 25px;
+}
+
 .question-list {
     list-style: none;
 }
 
 .question {
     width: 30vw;
+    color: white;
+
 }
 
 .home-page {
@@ -63,6 +72,7 @@ p {
     width: 20rem;
     text-align: center;
     border: 0.1rem solid #56a5eb;
+    border-radius: 25px;
     margin-bottom: 1rem;
     text-decoration: none;
     color: #56a5eb;
