@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Score from './Score'
 
 const User = ({ currentUser }) => {
     console.log(currentUser)
@@ -10,7 +11,7 @@ const User = ({ currentUser }) => {
     return (
         <div class='container'>
             <h2>Player Name: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
-            <h3>Score: { currentUser.currentUser? currentUser.currentUser.score : null }</h3>
+            <Score />
         </div>
     );
 }

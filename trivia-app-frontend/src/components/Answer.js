@@ -4,7 +4,7 @@ const Answer = ({ className, answer, onButtonClick }) => {
 
     return (
         <div>
-            <button className={className} onClick={() => onButtonClick()}>{answer.answer}</button>
+            <button className={className} onClick={(event) => onButtonClick(event)}>{answer.answer}</button>
         </div>
     )
 }

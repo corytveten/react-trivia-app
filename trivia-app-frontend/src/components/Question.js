@@ -76,16 +76,35 @@ class Question extends Component {
     state = {
         counter: 0,
         complete: false,
-        btnClass: 'btn'
+        btnClass: 'btn',
+        score: 0
     }
 
-    onButtonClick = () => {
+    onButtonClick = (event) => {
         // debugger
-        // console.log(event.target)
+        console.log(event.target.innerText)
+
+        console.log(this.props.questions[this.state.counter])
+        let answer = event.target.innerText;
+        let correct = this.props.questions[this.state.counter].correct_answer;
+
+        if (answer === correct) {
+         console.log('correct')
+         this.setState(function(previousState) {
+             return {
+                 score: previousState.score + 1
+             }
+         })
+        } else {
+            console.log('wrong');
+        }
+        console.log(this.state.score)
+    
+
         // console.log(this.props.questions[this.state.counter].answers);
-        const answersArr = this.props.questions[this.state.counter].answers;
-        const correctAns = answersArr.find(answer => answer.isCorrect)
-        console.log(this.correctAns)
+        // const answersArr = this.props.questions[this.state.counter].answers;
+        // const correctAns = answersArr.find(answer => answer.isCorrect)
+        // console.log(this.correctAns)
 
         
         this.setState({

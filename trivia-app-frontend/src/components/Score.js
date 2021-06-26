@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Score = ({ score }) => {
+const Score = ({ currentUser }) => {
 
     return (
         <h3>Score: { currentUser.currentUser? currentUser.currentUser.score : null }</h3>
@@ -10,7 +10,7 @@ const Score = ({ score }) => {
 
 const mapStateToProps = state => {
     return {
-        score: state.UsersReducer.currentUser.score
+        currentUser: state.UsersReducer
     }
 }
 
