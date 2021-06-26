@@ -1,5 +1,6 @@
 export default function usersReducer(state = {
     users: [],
+    currentUser: { score: 0 },
     requesting: false,
     }, 
     action) {
@@ -29,10 +30,23 @@ export default function usersReducer(state = {
 
 
         case 'LOGIN_USER':
+            console.log('logging in user')
             return {
                 ...state,
                 currentUser: action.user
             }
+
+        case 'INCREASE_SCORE':
+            console.log('increasing score reducer')
+            return {
+                ...state,
+                currentUser: {
+                    score: state.currentUser.score + 1
+                }
+            }
+
+        // case 'SAY_HELLO':
+        //     console.log('hello second')
 
         default:
             return state;

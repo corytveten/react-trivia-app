@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Answer from './Answer';
+import { increaseScore } from '../actions/users'
 
 // class Question extends Component {
 
@@ -77,7 +78,7 @@ class Question extends Component {
         counter: 0,
         complete: false,
         btnClass: 'btn',
-        score: 0
+        // score: 0
     }
 
     onButtonClick = (event) => {
@@ -88,17 +89,26 @@ class Question extends Component {
         let answer = event.target.innerText;
         let correct = this.props.questions[this.state.counter].correct_answer;
 
+        // if (answer === correct) {
+        //  console.log('correct')
+        //  this.setState(function(previousState) {
+        //      return {
+        //          score: previousState.score + 1
+        //      }
+        //  })
+        // } else {
+        //     console.log('wrong');
+        // }
+        // console.log(this.state.score)
         if (answer === correct) {
-         console.log('correct')
-         this.setState(function(previousState) {
-             return {
-                 score: previousState.score + 1
-             }
-         })
-        } else {
-            console.log('wrong');
-        }
-        console.log(this.state.score)
+            console.log('correct')
+            this.props.increaseScore();
+           } else {
+               console.log('wrong');
+           }
+           
+        
+
     
 
         // console.log(this.props.questions[this.state.counter].answers);
@@ -233,4 +243,4 @@ const mapStateToProps = state => {
     }
 }  
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps, { increaseScore })(Question)

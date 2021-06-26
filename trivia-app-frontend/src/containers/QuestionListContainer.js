@@ -26,7 +26,7 @@ class QuestionListContainer extends Component {
         console.log(this.props.loading)
         if (this.props.loading) {
             return <div>Loading...</div>
-        } else if (!this.props.currentUser) {
+        } else if (!this.props.currentUser.username) {
             // debugger
             return <h1>Please sign in</h1>
         } else {

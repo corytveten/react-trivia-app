@@ -9,7 +9,7 @@ const User = ({ currentUser }) => {
     // }
 
     return (
-        <div class='container'>
+        <div className='container'>
             <h2>Player Name: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
             <Score />
         </div>

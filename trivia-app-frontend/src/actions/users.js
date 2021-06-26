@@ -47,3 +47,15 @@ export const fetchUsers = () => {
         })
     };
 }
+
+export const increaseScore = () => {
+    console.log('inside increase')
+    return (dispatch) => {
+        dispatch({ type: 'INCREASE_SCORE' })
+    }
+}
+
+// export const increaseScore = () => {
+//     console.log('hello first')
+//     return { type: 'SAY_HELLO' }
+// }
