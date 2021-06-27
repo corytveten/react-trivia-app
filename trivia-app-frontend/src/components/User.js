@@ -9,11 +9,22 @@ const User = ({ currentUser }) => {
     //     return;
     // }
 
+const activeUser = () => {
+    if (currentUser.currentUser) {
+        return (
+            <div class='active-user-boiler'>
+                <h3>Click Questions button above to start playing</h3>
+                <Logout />
+            </div>
+        )
+    }
+}
     return (
-        <div className='container'>
+        <div className='player-container'>
             <h2>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
             <Score />
-            {currentUser.currentUser? <div><h3>Click Questions button above to start playing</h3><Logout /></div> : null}
+            {/* {currentUser.currentUser? <div><h3>Click Questions button above to start playing</h3><Logout /></div> : null} */}
+            {activeUser()}
         </div>
     );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import User from './User';
 import { addUser } from '../actions/users';
  
 class Signup extends React.Component {
@@ -46,7 +45,7 @@ class Signup extends React.Component {
   //     alert("Username exists. Choose another.")
   //     console.log(error.message);
   //   })
-      this.props.addUser(this.state)
+      this.props.addUser(this.state, this.props.history)
       this.setState({
         username: '',
         password: '',
