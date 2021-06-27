@@ -69,5 +69,15 @@ export const increaseCounter = () => {
 
 export const logout = () => {
     console.log('inside logout action')
-    return { type: 'LOGOUT' }
+    return (dispatch) => {
+
+        dispatch({ type: 'LOGOUT'})
+        const configObj = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        return fetch(url + '/logout', configObj)
+        }
 }
