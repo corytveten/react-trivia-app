@@ -6,11 +6,13 @@ export const addUser = user => {
         let formData = { username: user.username, password: user.password, score: 0 }
         console.log(formData)
         fetch('http://localhost:4000/users', {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+            // credentials: 'include',
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            body: JSON.stringify(formData)
         })
         .then(res => res.json())
         .then(user => {
@@ -23,7 +25,16 @@ export const addUser = user => {
 export const login = user => {
     console.log(user)
     return (dispatch) => {
-        fetch(url + '/users/' + user.username)
+        const configObj = {
+            // credentials: 'include',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }
+
+        return fetch(url + '/login', configObj)
         .then(res => res.json())
         .then(user => {
             console.log(user)

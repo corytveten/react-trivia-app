@@ -4,9 +4,13 @@ import { logout } from '../actions/users'
 
 const Logout = ({logout}) => {
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        logout()
+    }
     
     return (
-        <button onClick={() => logout()}>Logout</button>
+        <button onClick={handleSubmit}>Logout</button>
     )
 }
 
