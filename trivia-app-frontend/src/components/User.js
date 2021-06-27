@@ -13,7 +13,7 @@ const User = ({ currentUser }) => {
         <div className='container'>
             <h2>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
             <Score />
-            {currentUser.currentUser? <Logout /> : null}
+            {currentUser.currentUser? <div><h3>Click Questions button above to start playing</h3><Logout /></div> : null}
         </div>
     );
 }
