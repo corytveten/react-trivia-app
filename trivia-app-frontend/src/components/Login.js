@@ -116,7 +116,7 @@ class LoginForm extends Component {
     event.preventDefault();
     console.log("form submit");
     //call login action and pass this.state.
-    this.props.login(this.state)
+    this.props.login(this.state, this.props.history)
 
 
     this.setState({

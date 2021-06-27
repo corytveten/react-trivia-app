@@ -22,8 +22,8 @@ export const addUser = user => {
     }
 }
 
-export const login = user => {
-    console.log(user)
+export const login = (user, history) => {
+    console.log(user, history)
     return (dispatch) => {
         const configObj = {
             // credentials: 'include',
@@ -39,6 +39,7 @@ export const login = user => {
         .then(user => {
             console.log(user)
             dispatch({ type: 'LOGIN_USER', user})
+            history.push('/user')
         })
     }
     
