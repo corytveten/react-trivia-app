@@ -23,28 +23,7 @@ class Signup extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-  //   let formData = { username: this.state.username, password: this.state.password, score: 0 }
-  //   console.log(formData)
-  //   fetch('http://localhost:4000/users', {
-  //     method: "POST",
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(formData)
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     const currentUser = data; 
-  //     if (currentUser) {
-  //       this.setState({
-  //         currentUser: currentUser
-  //       })
-  //     }
-  //   })
-  //   .catch(error => {
-  //     alert("Username exists. Choose another.")
-  //     console.log(error.message);
-  //   })
+
       this.props.addUser(this.state, this.props.history)
       this.setState({
         username: '',
@@ -68,11 +47,6 @@ class Signup extends React.Component {
         </div>
         <input type="submit" value="Create Account" />
       </form>
-      {/* {this.props.map((user, index) => {
-        // <User user={user} key={index} />
-        <User />
-      })} */}
-      {/* <User username={this.props.username} score={this.props.currentUser.score}/> */}
       </div>
     );
   }
@@ -84,10 +58,7 @@ const mapStateToProps = state => {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addUser: formData => dispatch({ type: 'ADD_USER', payload: formData })
-//   };
-// };
+
  
 export default connect(mapStateToProps, { addUser })(Signup);
+

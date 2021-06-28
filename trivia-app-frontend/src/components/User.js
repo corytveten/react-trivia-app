@@ -5,14 +5,12 @@ import Logout from './Logout'
 
 const User = ({ currentUser }) => {
     console.log(currentUser)
-    // if (!username) {
-    //     return;
-    // }
+
 
 const activeUser = () => {
     if (currentUser.currentUser) {
         return (
-            <div class='active-user-boiler'>
+            <div className='active-user-boiler'>
                 <h3>Click Questions button above to start playing</h3>
                 <Logout />
             </div>
@@ -23,7 +21,6 @@ const activeUser = () => {
         <div className='player-container'>
             <h2>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
             <Score />
-            {/* {currentUser.currentUser? <div><h3>Click Questions button above to start playing</h3><Logout /></div> : null} */}
             {activeUser()}
         </div>
     );
@@ -37,24 +34,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(User)
 
-// class User extends Component {
-
-    
-
-//     render() {
-//         return (
-//             <div class='container'>
-//                 <h2>Player Name: </h2>
-//                 <h3>Score: </h3>
-//             </div>
-//         )
-//     }
-// }
-
-// const mapStateToProps = state => {
-//     return {
-//         currentUser: state.UsersReducer.currentUser
-//     }
-// }
-
-// export default connect(mapStateToProps)(User)
