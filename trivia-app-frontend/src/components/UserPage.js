@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Logout from './Logout';
 import User from './User';
+import { NavLink } from 'react-router-dom';
 
 const UserPage = ({ currentUser, history }) => {
     console.log(currentUser)
@@ -15,12 +16,29 @@ const UserPage = ({ currentUser, history }) => {
     //         )
     //     }
     // }
+    const link = {
+        width: '100px',
+        padding: '12px',
+        margin: '0 6px 6px',
+        background: 'blue',
+        textDecoration: 'none',
+        color: 'white',
+        borderRadius: '25px',
+      }
 
     return (
         <div className='container'>
             <User />
                 <div className='active-user-boiler'>
                 <h3>Click Questions button above to start playing</h3>
+                <NavLink
+                    to="/questions"
+                    exact
+                    style={link}
+                    activeStyle={{
+                    background: 'darkblue'
+                    }}
+                    >Questions</NavLink>
                 <Logout history={history} />
             </div>
         </div>
