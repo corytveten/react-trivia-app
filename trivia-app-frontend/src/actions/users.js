@@ -21,6 +21,9 @@ export const addUser = (user, history) => {
             dispatch({ type: 'LOGIN_USER', user})
             history.push('/user')
         })
+        .catch(error => {
+            alert('This username may already exist.')
+        })
     }
 }
 
@@ -41,7 +44,15 @@ export const login = (user, history) => {
         .then(user => {
             console.log(user)
             dispatch({ type: 'LOGIN_USER', user})
-            history.push('/user')
+            if (user.username) {
+                history.push('/user')
+            }
+        })
+        .catch(error => {
+            alert('Incorrect credentials.')
+            if (error) {
+                return
+            }
         })
     }
     
