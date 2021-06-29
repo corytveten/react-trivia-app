@@ -21,7 +21,7 @@ class UserContainer extends Component {
       return <div>Loading...</div>
     } else {
       console.log(this.props.users)
-      return <User />
+      return <UserPage />
     }
   }
 

@@ -47,8 +47,8 @@ p {
 }
 
 .player-container {
-    width: 100vw;
-    height: 100vh;
+    width: 20vw;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -70,11 +70,13 @@ export const increaseCounter = () => {
     return { type: 'INCREASE_COUNTER' }
 }
 
-export const logout = () => {
+export const logout = (history) => {
     console.log('inside logout action')
+    
     return (dispatch) => {
 
         dispatch({ type: 'LOGOUT'})
+        history.push('/login')
         const configObj = {
             method: 'DELETE',
             headers: {
@@ -82,5 +84,7 @@ export const logout = () => {
             }
         };
         return fetch(url + '/logout', configObj)
+        
         }
+        
 }

@@ -1,27 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Score from './Score'
-import Logout from './Logout'
+// import Logout from './Logout'
 
 const User = ({ currentUser }) => {
     console.log(currentUser)
 
 
-const activeUser = () => {
-    if (currentUser.currentUser) {
-        return (
-            <div className='active-user-boiler'>
-                <h3>Click Questions button above to start playing</h3>
-                <Logout />
-            </div>
-        )
-    }
-}
+// const activeUser = () => {
+//     if (currentUser.currentUser) {
+//         return (
+//             <div className='active-user-boiler'>
+//                 <h3>Click Questions button above to start playing</h3>
+//                 <Logout />
+//             </div>
+//         )
+//     }
+// }
     return (
         <div className='player-container'>
             <h2>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
             <Score />
-            {activeUser()}
+            {/* {activeUser()} */}
         </div>
     );
 }

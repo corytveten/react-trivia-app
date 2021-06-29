@@ -2,11 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../actions/users'
 
-const Logout = ({logout}) => {
-
+const Logout = ({logout, history}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        logout()
+        logout(history)
     }
     
     return (
