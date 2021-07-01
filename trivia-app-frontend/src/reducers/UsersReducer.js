@@ -1,10 +1,11 @@
-export default function usersReducer(state = {
+const initialState = {
     users: [],
     currentUser: '',
     counter: 0,
     requesting: false,
-    }, 
-    action) {
+}
+
+export default function usersReducer(state = initialState, action) {
     
     switch (action.type) {
 
@@ -34,8 +35,8 @@ export default function usersReducer(state = {
             console.log('logging in user')
             console.log(action.user)
             return {
-                ...state,
-                currentUser: action.user
+                ...initialState,
+                currentUser: action.user,
             }
 
         case 'INCREASE_SCORE':
@@ -58,7 +59,7 @@ export default function usersReducer(state = {
         case 'LOGOUT':
             console.log('logging out reducer')
             return {
-                state
+                initialState
             }
 
         default:

@@ -140,8 +140,8 @@ class Question extends Component {
                 <div className='question'>
                     {this.props.questions.length > 0 ? this.questionBuilder() : null }
                     <ul>
-                        {/* make sure questions exists */}
-                        {this.props.questions.length > 0 ? this.answerShuffle() : null }
+                    {/* make sure questions exists */}
+                    {this.props.questions.length > 0 ? this.answerShuffle() : null }
                     </ul>
                 </div>
                 {correctAns}

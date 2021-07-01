@@ -7,15 +7,7 @@ import { NavLink } from 'react-router-dom';
 const UserPage = ({ currentUser, history }) => {
     console.log(currentUser)
 
-    // const activeUser = () => {
-    //     console.log(currentUser)
-    //     if (currentUser.username) {
-            
-    //         return (
-                
-    //         )
-    //     }
-    // }
+
     const link = {
         width: '100px',
         padding: '12px',
