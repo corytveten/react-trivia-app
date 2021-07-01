@@ -12,10 +12,10 @@ class Question extends Component {
         // counter: 0,
         complete: false,
         btnClass: 'btn',
-        // score: 0
+        clickedBtn: ''
     }
 
-    onButtonClick = (event) => {
+    onButtonClick = (event, clickedAnswer) => {
         // debugger
         console.log(event.target.innerText)
 
@@ -31,11 +31,12 @@ class Question extends Component {
                console.log('wrong');
            }
            
-        
+
 
         
         this.setState({
-            complete: true
+            complete: true,
+            clickedBtn: clickedAnswer.answer,
         })
         //change classList of correct button on click
     }
@@ -48,9 +49,10 @@ class Question extends Component {
                 counter: previousState.counter + 1
             }
         })
-    
+        console.log('clicked', this.state.complete)
         this.setState({
-            complete: false
+            complete: false,
+            clickedBtn: ''
         })
 
         this.props.increaseCounter();
@@ -72,15 +74,28 @@ class Question extends Component {
 
     answerShuffle() {
         console.log(this.props.questions)
-        const currentQuestionAnswers = this.props.questions[this.props.counter].answers;
+
+        const currentQuestionAnswers = this.props.questions[this.props.counter].answers
 
         // this.shuffle(currentQuestionAnswers) {} - destructive without slice
 
         //.slice creates a copy which can be destructively changed by shuffle
         return (
             this.shuffle(currentQuestionAnswers.slice()).map((answer, index) => {
+            let highlightStatus = 'none'
+            if (this.state.complete) {
+                if (answer.answer === this.state.clickedBtn && !answer.isCorrect) {
+                    console.log('hello')
+                    highlightStatus = 'red'
+                }
+                if (answer.isCorrect) {
+                    highlightStatus = 'green'
+                }
+            }
+
+            console.log(this.state.clickedBtn)
             return (
-                <Answer className={this.state.btnClass} key={index} answer={answer} onButtonClick={this.onButtonClick} />
+                <Answer key={index} answer={answer} highlightStatus={highlightStatus} onButtonClick={this.onButtonClick} />
             )
         })
 
@@ -100,9 +115,9 @@ class Question extends Component {
     }
 
     render () {
-        if (this.props.questions.length > 0) {
-         console.log(this.answerShuffle()) 
-        };
+        // if (this.props.questions.length > 0) {
+        //  console.log(this.answerShuffle()) 
+        // };
 
         let correctAns;
         if (this.state.complete && this.props.counter < 10) {
@@ -116,7 +131,7 @@ class Question extends Component {
         let nextButton;
         if (this.state.complete && this.props.counter < 10) {
 
-            nextButton = <button className='next-button' onClick={this.nextButtonClick}>Next Question</button>
+            nextButton = <button className='next-button' onClick={()=> this.nextButtonClick()}>Next Question</button>
         }
 
 
@@ -126,6 +141,7 @@ class Question extends Component {
             <div className='question'>
                 {this.props.questions.length > 0 ? this.questionBuilder() : null }
                 <ul>
+                    {/* make sure questions exists */}
                     {this.props.questions.length > 0 ? this.answerShuffle() : null }
                 </ul>
             </div>

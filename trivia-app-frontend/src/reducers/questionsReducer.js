@@ -14,16 +14,6 @@ function questionsReducer(state = {
             case 'ADD_QUESTIONS':
                 return {
                     ...state,
-                    // questions: {
-                    //     ...action.questions,
-                    //     answers: [
-                    //         action.questions.correct_answer,
-                    //         action.questions.incorrect_answer_a,
-                    //         action.questions.incorrect_answer_b,
-                    //         action.questions.incorrect_answer_c,
-                    //     ]
-                    // },
-                    //reshaping the data so that I can randomize the correct answer in an array before rendering.
                     questions: action.questions.map(question => (
                         Object.assign({}, question, {answers: [
                             {answer: question.correct_answer, isCorrect: true},
