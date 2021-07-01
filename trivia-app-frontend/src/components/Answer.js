@@ -5,8 +5,9 @@ const Answer = ({ className, answer, onButtonClick, highlightStatus }) => {
     return (
         <div>
             <button 
-            className='btn' 
-            style={{backgroundColor: highlightStatus}} 
+            // className='btn' 
+            className={highlightStatus}
+            // style={{backgroundColor: highlightStatus}} 
             onClick={(event) => onButtonClick(event, answer)}
             >{answer.answer}</button>
         </div>

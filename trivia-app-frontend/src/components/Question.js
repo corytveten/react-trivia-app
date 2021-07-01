@@ -25,10 +25,10 @@ class Question extends Component {
 
 
         if (answer === correct) {
-            console.log('correct')
+            // console.log('correct')
             this.props.increaseScore();
            } else {
-               console.log('wrong');
+            //    console.log('wrong');
            }
            
 
@@ -65,7 +65,7 @@ class Question extends Component {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.props.counter]);
         // debugger
         return (
-            <h2 className='question'>{currentQuestion.question}</h2>
+            currentQuestion.question? <h2 className='question'>{currentQuestion.question}</h2> : null
         );
     
 
@@ -82,14 +82,14 @@ class Question extends Component {
         //.slice creates a copy which can be destructively changed by shuffle
         return (
             this.shuffle(currentQuestionAnswers.slice()).map((answer, index) => {
-            let highlightStatus = 'none'
+            let highlightStatus = 'btn'
             if (this.state.complete) {
                 if (answer.answer === this.state.clickedBtn && !answer.isCorrect) {
                     console.log('hello')
-                    highlightStatus = 'red'
+                    highlightStatus = 'btn-red'
                 }
                 if (answer.isCorrect) {
-                    highlightStatus = 'green'
+                    highlightStatus = 'btn-green'
                 }
             }
 
