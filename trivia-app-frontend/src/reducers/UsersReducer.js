@@ -32,6 +32,7 @@ export default function usersReducer(state = {
 
         case 'LOGIN_USER':
             console.log('logging in user')
+            console.log(action.user)
             return {
                 ...state,
                 currentUser: action.user

@@ -9,7 +9,6 @@ import { increaseCounter } from '../actions/users'
 class Question extends Component {
 
     state = {
-        // counter: 0,
         complete: false,
         btnClass: 'btn',
         clickedBtn: ''
@@ -65,7 +64,7 @@ class Question extends Component {
         const currentQuestion = this.props.questions.find(question => question === this.props.questions[this.props.counter]);
         // debugger
         return (
-            currentQuestion.question? <h2 className='question'>{currentQuestion.question}</h2> : null
+            currentQuestion? <h2 className='question'>{currentQuestion.question}</h2> : null
         );
     
 
@@ -73,7 +72,7 @@ class Question extends Component {
 
 
     answerShuffle() {
-        console.log(this.props.questions)
+        console.log(this.props.questions, 'counter:', this.props.counter)
 
         const currentQuestionAnswers = this.props.questions[this.props.counter].answers
 
@@ -138,15 +137,15 @@ class Question extends Component {
          
         return (
             <>
-            <div className='question'>
-                {this.props.questions.length > 0 ? this.questionBuilder() : null }
-                <ul>
-                    {/* make sure questions exists */}
-                    {this.props.questions.length > 0 ? this.answerShuffle() : null }
-                </ul>
-            </div>
-            {correctAns}
-            {nextButton}
+                <div className='question'>
+                    {this.props.questions.length > 0 ? this.questionBuilder() : null }
+                    <ul>
+                        {/* make sure questions exists */}
+                        {this.props.questions.length > 0 ? this.answerShuffle() : null }
+                    </ul>
+                </div>
+                {correctAns}
+                {nextButton}
             </>
         )
 
