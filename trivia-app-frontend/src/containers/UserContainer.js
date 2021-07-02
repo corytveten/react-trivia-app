@@ -12,8 +12,11 @@ import Signup from '../components/Signup'
 class UserContainer extends Component {
 
   componentDidMount() {
+    
     this.props.fetchUsers()
-  }
+    
+  } 
+    
 
   handleLoading = () => {
     console.log(this.props.loading)

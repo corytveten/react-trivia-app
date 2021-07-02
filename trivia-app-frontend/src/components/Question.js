@@ -11,14 +11,15 @@ class Question extends Component {
     state = {
         complete: false,
         btnClass: 'btn',
-        clickedBtn: ''
+        clickedBtn: '',
     }
+
 
     onButtonClick = (event, clickedAnswer) => {
         // debugger
-        console.log(event.target.innerText)
+        // console.log(event.target.innerText)
 
-        console.log(this.props.questions[this.props.counter])
+        // console.log(this.props.questions[this.props.counter])
         let answer = event.target.innerText;
         let correct = this.props.questions[this.props.counter].correct_answer;
 
