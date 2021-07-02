@@ -10,4 +10,6 @@ export function fetchQuestions() {
     };
 }
 
+//dispatch method comes from the store
+//action, consisting of type and payload, is dispatched to the reducer, where state will be modified
 //thunk allows us to return a function inside the action creator. Single fetchQuestions function contains two actions.

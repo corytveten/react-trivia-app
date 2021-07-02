@@ -15,24 +15,24 @@ class QuestionList extends Component {
         }
     }
 
-    randomizeAnswers = () => {
+    // randomizeAnswers = () => {
 
-        let currentQuestion = this.props.questions.questions[0];
-        debugger;
-        console.log(currentQuestion.answers);
+    //     let currentQuestion = this.props.questions.questions[0];
+    //     debugger;
+    //     console.log(currentQuestion.answers);
 
-        let shuffledArray = this.shuffleCorrect(currentQuestion.answers)
-        console.log(shuffledArray)
-        return shuffledArray;
-    }
+    //     let shuffledArray = this.shuffleCorrect(currentQuestion.answers)
+    //     console.log(shuffledArray)
+    //     return shuffledArray;
+    // }
 
-    shuffleCorrect(array) {
-        const correctAnswer = array[0];
-        const newArray = array.shift();
-        const randomIndex = Math.floor(Math.random() * 4);
-        console.log({newArray: newArray, randomIndex: randomIndex})
-        return newArray.splice(randomIndex, 0, correctAnswer);
-    }
+    // shuffleCorrect(array) {
+    //     const correctAnswer = array[0];
+    //     const newArray = array.shift();
+    //     const randomIndex = Math.floor(Math.random() * 4);
+    //     console.log({newArray: newArray, randomIndex: randomIndex})
+    //     return newArray.splice(randomIndex, 0, correctAnswer);
+    // }
 
 
     onButtonClick = (event, question, isCorrect) => {

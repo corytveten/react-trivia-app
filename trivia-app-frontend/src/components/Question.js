@@ -84,7 +84,6 @@ class Question extends Component {
             let highlightStatus = 'btn'
             if (this.state.complete) {
                 if (answer.answer === this.state.clickedBtn && !answer.isCorrect) {
-                    console.log('hello')
                     highlightStatus = 'btn-red'
                 }
                 if (answer.isCorrect) {
@@ -123,7 +122,7 @@ class Question extends Component {
             let answersArr = this.props.questions[this.props.counter].answers;
             let AnswerObj = answersArr.find(answer => answer.isCorrect)
             correctAns = <h2 className='question'>Correct Answer: {AnswerObj.answer}</h2>
-            console.log(correctAns)
+            // console.log(correctAns)
         }
 
         //  if/else for render after the question is clicked
