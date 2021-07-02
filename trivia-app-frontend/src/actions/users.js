@@ -1,5 +1,6 @@
 const url = "http://localhost:4000"
 
+
 export const addUser = (user, history) => {
     console.log(user, history)
     return (dispatch) => {

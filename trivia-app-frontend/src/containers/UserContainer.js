@@ -28,7 +28,7 @@ class UserContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className='users-container'>
                 {!this.props.currentUser? <Login /> : null } 
                 {/* <Signup /> */}
                 <p>User: {this.handleLoading}</p>

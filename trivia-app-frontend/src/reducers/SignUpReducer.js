@@ -62,31 +62,31 @@
 
 // }
 
-const SignUpReducer = (state = {
-    users: [
-        {
-            username: 'Will',
-            score: 0
-        },
-        {
-            username: 'Timothy',
-            score: 0
-        }
-    ]
-}, action) => {
+// const SignUpReducer = (state = {
+//     users: [
+//         {
+//             username: 'Will',
+//             score: 0
+//         },
+//         {
+//             username: 'Timothy',
+//             score: 0
+//         }
+//     ]
+// }, action) => {
 
-    switch (action.type) {
-        case 'ADD_USER':
-           console.log(state.users, action.user)
-           return state.users.concat(
-               {
-                   username: action.user.username,
-                   score: 0
-               }
-           )
-           default:
-               return state;
-    }
-}
+//     switch (action.type) {
+//         case 'ADD_USER':
+//            console.log(state.users, action.user)
+//            return state.users.concat(
+//                {
+//                    username: action.user.username,
+//                    score: 0
+//                }
+//            )
+//            default:
+//                return state;
+//     }
+// }
 
-export default SignUpReducer
+// export default SignUpReducer
