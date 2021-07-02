@@ -3,15 +3,12 @@ const url = "http://localhost:4000"
 export const addUser = (user, history) => {
     console.log(user, history)
     return (dispatch) => {
-        // let formData = { username: user.username, password: user.password, score: 0 }
         let formData = { ...user, score: 0}
         console.log(formData)
         fetch('http://localhost:4000/users', {
-            // credentials: 'include',
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                // 'Access-Control-Allow-Credentials': 'true'
             },
             body: JSON.stringify(formData)
         })
@@ -31,7 +28,6 @@ export const login = (user, history) => {
     console.log(user, history)
     return (dispatch) => {
         const configObj = {
-            // credentials: 'include',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

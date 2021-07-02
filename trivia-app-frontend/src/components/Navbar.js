@@ -18,7 +18,7 @@ class Navbar extends React.Component {
         <NavLink
           to="/"
           exact
-          style={link}
+          className='link-btn'
           activeStyle={{
             background: 'darkblue'
           }}
@@ -26,7 +26,7 @@ class Navbar extends React.Component {
         <NavLink
           to="/questions"
           exact
-          style={link}
+          className='link-btn'
           activeStyle={{
             background: 'darkblue'
           }}
@@ -34,7 +34,7 @@ class Navbar extends React.Component {
         <NavLink
           to="/login"
           exact
-          style={link}
+          className='link-btn'
           activeStyle={{
             background: 'darkblue'
           }}
@@ -42,7 +42,7 @@ class Navbar extends React.Component {
         <NavLink
           to="/signup"
           exact
-          style={link}
+          className='link-btn'
           activeStyle={{
             background: 'darkblue'
           }}
@@ -50,7 +50,7 @@ class Navbar extends React.Component {
         <NavLink
           to="/user"
           exact
-          style={link}
+          className='link-btn'
           activeStyle={{
             background: 'darkblue'
           }}

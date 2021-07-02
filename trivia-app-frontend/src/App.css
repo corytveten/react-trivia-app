@@ -59,6 +59,10 @@ p {
     color: white; */
 }
 
+.player-container h2, h3 {
+    color: white;
+}
+
 .question-list {
     list-style: none;
 }
@@ -135,4 +139,46 @@ p {
 
 .active-user-boiler {
     text-align: center;
+}
+
+/* .link-btn  {
+    width: '100px';
+    padding: '12px';
+    margin: '0 6px 6px';
+    background: 'blue';
+    text-decoration: 'none';
+    color: 'white';
+    border-radius: '25px';
+  } */
+
+.link-btn {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    width: 20rem;
+    text-align: center;
+    border: 0.1rem solid #56a5eb;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #56a5eb;
+    background-color: white;
+}
+
+.user-container {
+    margin: 2vw;
+    padding: 5px;
+    background-color: darkblue;
+    border-radius: 25px;
+}
+
+.home-container {
+    margin: 2vw;
+    padding: 20px;
+    background-color: darkblue;
+    border-radius: 25px;
+    max-width: 80rem;
+}
+
+.home-container h1, h2 {
+    color: white;
 }

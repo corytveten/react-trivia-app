@@ -20,18 +20,20 @@ const UserPage = ({ currentUser, history }) => {
 
     return (
         <div className='container'>
-            <User />
+            <div className='user-container'>
+                <User />
                 <div className='active-user-boiler'>
                 <h3>Click Questions button above to start playing</h3>
                 <NavLink
                     to="/questions"
                     exact
-                    style={link}
+                    className='link-btn'
                     activeStyle={{
                     background: 'darkblue'
                     }}
                     >Questions</NavLink>
                 <Logout history={history} />
+                </div>
             </div>
         </div>
     ) 

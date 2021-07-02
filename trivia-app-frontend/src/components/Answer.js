@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Answer = ({ className, answer, onButtonClick, highlightStatus }) => {
+const Answer = ({ answer, onButtonClick, highlightStatus }) => {
     console.log(answer, highlightStatus)
     return (
         <div>
