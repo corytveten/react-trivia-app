@@ -4,7 +4,7 @@ export function fetchQuestions() {
         fetch('http://localhost:4000/questions')
         .then(res => res.json())
         .then(questions => {
-            console.log(questions)
+            // console.log(questions)
             dispatch({ type: 'ADD_QUESTIONS', questions })
         })
     };

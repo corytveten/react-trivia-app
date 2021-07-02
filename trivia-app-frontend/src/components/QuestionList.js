@@ -15,28 +15,28 @@ class QuestionList extends Component {
         }
     }
 
-    onButtonClick = (event, question, isCorrect) => {
+    // onButtonClick = (event, question, isCorrect) => {
 
-        console.log({ event: event.target, question: question, isCorrect: isCorrect })
+    //     console.log({ event: event.target, question: question, isCorrect: isCorrect })
         
 
-        this.setState({
-            complete: true,
-        })
-    }
+    //     this.setState({
+    //         complete: true,
+    //     })
+    // }
 
-    nextButtonClick = () => {
+    // nextButtonClick = () => {
         
-        this.setState(function(previousState) {
-            return {
-                counter: previousState.counter + 1
-            }
-        })
+    //     this.setState(function(previousState) {
+    //         return {
+    //             counter: previousState.counter + 1
+    //         }
+    //     })
 
-        this.setState({
-            complete: false
-        })
-    }
+    //     this.setState({
+    //         complete: false
+    //     })
+    // }
 
 
     render(){
@@ -47,18 +47,18 @@ class QuestionList extends Component {
                 <div className='question-container'>
                     <p>question list</p>
                     <ul className='question-list'> 
-                    {this.state.answers !== [] ?
-                        <li><Question 
-                            question={this.props.questions.questions[this.state.counter]} 
-                            answers={this.state.answers}
-                            onButtonClick={this.onButtonClick} 
-                            btnClass={this.props.btnClass}
-                            />
-                        </li> :
-                            null    
-                    }
+                    {/* {this.state.answers !== [] ? */}
+                        <li><Question /></li>
+                            {/* // question={this.props.questions.questions[this.state.counter]} 
+                            // answers={this.state.answers}
+                            // onButtonClick={this.onButtonClick} 
+                            // btnClass={this.props.btnClass}
+                            /> */}
+                        {/* </li> : */}
+                            {/* null     */}
+                    {/* } */}
                     </ul>
-                    {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null}
+                    {/* {this.state.complete? <button className='next-button' onClick={this.nextButtonClick}>Next Question</button> : null} */}
                 </div>
                 <User />
             </>
@@ -69,22 +69,6 @@ class QuestionList extends Component {
 
 export default QuestionList;
 
+//logic removed from questionList and put into question. This is basically a presentation component now for question card styling and
   
-    // randomizeAnswers = () => {
 
-    //     let currentQuestion = this.props.questions.questions[0];
-    //     debugger;
-    //     console.log(currentQuestion.answers);
-
-    //     let shuffledArray = this.shuffleCorrect(currentQuestion.answers)
-    //     console.log(shuffledArray)
-    //     return shuffledArray;
-    // }
-
-    // shuffleCorrect(array) {
-    //     const correctAnswer = array[0];
-    //     const newArray = array.shift();
-    //     const randomIndex = Math.floor(Math.random() * 4);
-    //     console.log({newArray: newArray, randomIndex: randomIndex})
-    //     return newArray.splice(randomIndex, 0, correctAnswer);
-    // }
