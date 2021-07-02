@@ -15,26 +15,6 @@ class QuestionList extends Component {
         }
     }
 
-    // randomizeAnswers = () => {
-
-    //     let currentQuestion = this.props.questions.questions[0];
-    //     debugger;
-    //     console.log(currentQuestion.answers);
-
-    //     let shuffledArray = this.shuffleCorrect(currentQuestion.answers)
-    //     console.log(shuffledArray)
-    //     return shuffledArray;
-    // }
-
-    // shuffleCorrect(array) {
-    //     const correctAnswer = array[0];
-    //     const newArray = array.shift();
-    //     const randomIndex = Math.floor(Math.random() * 4);
-    //     console.log({newArray: newArray, randomIndex: randomIndex})
-    //     return newArray.splice(randomIndex, 0, correctAnswer);
-    // }
-
-
     onButtonClick = (event, question, isCorrect) => {
 
         console.log({ event: event.target, question: question, isCorrect: isCorrect })
@@ -60,8 +40,8 @@ class QuestionList extends Component {
 
 
     render(){
-        console.log(this.props)
-        {console.log(this.state.answers)}
+        // console.log(this.props)
+        // {console.log(this.state.answers)}
         return(
             <>
                 <div className='question-container'>
@@ -90,3 +70,21 @@ class QuestionList extends Component {
 export default QuestionList;
 
   
+    // randomizeAnswers = () => {
+
+    //     let currentQuestion = this.props.questions.questions[0];
+    //     debugger;
+    //     console.log(currentQuestion.answers);
+
+    //     let shuffledArray = this.shuffleCorrect(currentQuestion.answers)
+    //     console.log(shuffledArray)
+    //     return shuffledArray;
+    // }
+
+    // shuffleCorrect(array) {
+    //     const correctAnswer = array[0];
+    //     const newArray = array.shift();
+    //     const randomIndex = Math.floor(Math.random() * 4);
+    //     console.log({newArray: newArray, randomIndex: randomIndex})
+    //     return newArray.splice(randomIndex, 0, correctAnswer);
+    // }

@@ -1,15 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
  
-const link = {
-  width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'blue',
-  textDecoration: 'none',
-  color: 'white',
-  borderRadius: '25px',
-}
  
 class Navbar extends React.Component {
   render() {
@@ -61,3 +52,13 @@ class Navbar extends React.Component {
 }
  
 export default Navbar;
+
+// const link = {
+  //   width: '100px',
+  //   padding: '12px',
+  //   margin: '0 6px 6px',
+  //   background: 'blue',
+  //   textDecoration: 'none',
+  //   color: 'white',
+  //   borderRadius: '25px',
+  // }
