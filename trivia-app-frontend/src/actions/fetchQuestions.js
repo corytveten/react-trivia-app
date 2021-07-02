@@ -9,3 +9,5 @@ export function fetchQuestions() {
         })
     };
 }
+
+//thunk allows us to return a function inside the action creator. Single fetchQuestions function contains two actions.
