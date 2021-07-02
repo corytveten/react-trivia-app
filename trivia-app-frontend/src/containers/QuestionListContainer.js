@@ -20,7 +20,7 @@ class QuestionListContainer extends Component {
         } else if (this.props.counter >= 10) {
             return (
                 <div>
-                    <h3 style={{textAlign: 'center'}}>FINAL SCORE</h3>
+                    <h1 className='final-score'>FINAL SCORE</h1>
                     <User />
                 </div>
             )

@@ -9,7 +9,7 @@ const Logout = ({logout, history}) => {
     }
     
     return (
-        <button className='link-btn' onClick={handleSubmit}>Logout</button>
+        <button className='logout-btn' onClick={handleSubmit}>Logout</button>
     )
 }
 

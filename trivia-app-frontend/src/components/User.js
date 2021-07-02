@@ -19,7 +19,7 @@ const User = ({ currentUser }) => {
 // }
     return (
         <div className='player-container'>
-            <h2>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h2>
+            <h1>Now Playing: { currentUser.currentUser? currentUser.currentUser.username : null }</h1>
             <Score />
             {/* {activeUser()} */}
         </div>

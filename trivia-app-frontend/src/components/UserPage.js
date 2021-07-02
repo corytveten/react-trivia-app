@@ -8,15 +8,15 @@ const UserPage = ({ currentUser, history }) => {
     console.log(currentUser)
 
 
-    const link = {
-        width: '100px',
-        padding: '12px',
-        margin: '0 6px 6px',
-        background: 'blue',
-        textDecoration: 'none',
-        color: 'white',
-        borderRadius: '25px',
-      }
+    // const link = {
+    //     width: '100px',
+    //     padding: '12px',
+    //     margin: '0 6px 6px',
+    //     background: 'blue',
+    //     textDecoration: 'none',
+    //     color: 'white',
+    //     borderRadius: '25px',
+    //   }
 
     return (
         <div className='container'>
